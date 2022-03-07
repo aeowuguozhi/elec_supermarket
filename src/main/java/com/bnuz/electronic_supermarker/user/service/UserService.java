@@ -1,0 +1,38 @@
+package com.bnuz.electronic_supermarker.user.service;
+
+import com.bnuz.electronic_supermarker.common.javaBean.User;
+import com.bnuz.electronic_supermarker.user.dto.UserDto;
+import org.springframework.validation.Errors;
+
+import java.util.Map;
+
+/**
+ * 用户模块   实现功能如下： 注册、登陆、修改密码、修改手机号码、修改用户信息（头像、昵称、身份证）
+ */
+
+public interface UserService {
+    /**
+     * 检查用户名是否可用，是否重复了
+     * @param account
+     * @return 是否可用
+     */
+    boolean checkAccount(String account);
+
+    /**
+     *用户注册，注册前需要检查用户名是否可用
+     * @param user
+     * @param password2
+
+     */
+    void registerUser(User user,String password2);
+
+    /**
+     * 登录接口
+     * @param account
+     * @param password
+     * @return
+     */
+    Map<String,Object> login(String account, String password);
+
+
+}

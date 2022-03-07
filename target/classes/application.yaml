@@ -1,0 +1,28 @@
+
+spring:
+  #数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/eletronicsupermarket?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    jedis:
+      #连接池
+      pool:
+        min-idle: 2
+        max-idle: 8
+        max-active: 100
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: root
+    timeout: 1000
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml
+
+server:
+  port: 8888
