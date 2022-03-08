@@ -1,5 +1,6 @@
 package com.bnuz.electronic_supermarker.user.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.bnuz.electronic_supermarker.common.javaBean.User;
 import com.bnuz.electronic_supermarker.user.dto.UserDto;
 import org.springframework.validation.Errors;
@@ -10,7 +11,7 @@ import java.util.Map;
  * 用户模块   实现功能如下： 注册、登陆、修改密码、修改手机号码、修改用户信息（头像、昵称、身份证）
  */
 
-public interface UserService {
+public interface UserService extends IService<User> {
     /**
      * 检查用户名是否可用，是否重复了
      * @param account
@@ -27,12 +28,12 @@ public interface UserService {
     void registerUser(User user,String password2);
 
     /**
-     * 登录接口
+     * 登录接口 用户用账号和密码进行登陆，返回token
      * @param account
      * @param password
      * @return
      */
-    Map<String,Object> login(String account, String password);
+    String login(String account, String password);
 
 
 }

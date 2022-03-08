@@ -1,5 +1,6 @@
 package com.bnuz.electronic_supermarker.user.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.bnuz.electronic_supermarker.common.javaBean.User;
 import com.bnuz.electronic_supermarker.user.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
@@ -7,11 +8,11 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
- * userDao用来CURD user表
+ * userDao用来CURD user表      Mapper层
  */
 @Repository
 @Mapper
-public interface UserDao {
+public interface UserDao extends BaseMapper<User> {
 
     /**
      * 用户注册

@@ -1,5 +1,14 @@
-
 spring:
+  #静态资源访问前缀
+  mvc:
+    static-path-pattern: /res/**
+
+  web:
+    resources:
+#static-locations: classpath:/haha/     #改变默认的静态资源路径(这个+META-INF/resources可以)   deprecated(不赞成) use resources.static-locations
+      add-mappings: true                              #禁用所有静态资源规则
+
+
   #数据源
   datasource:
     url: jdbc:mysql://localhost:3306/eletronicsupermarket?characterEncoding=utf-8&useSSL=false
@@ -7,24 +16,48 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+    druid:
+      stat-view-servlet:                              #监控页的配置
+        login-password: admin
+        login-username: admin
+        enabled: true
+        reset-enable: false
+      web-stat-filter:                                #web监控
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      aop-patterns: com.atguigu.admin.*               #Spring-Aop配置
+      filters: stat,wall                              #filter配置
+      filter:
+        stat:
+          slow-sql-millis: 1000
+          log-slow-sql: true
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
   redis:
-    jedis:
-      #连接池
-      pool:
-        min-idle: 2
-        max-idle: 8
-        max-active: 100
-    host: 127.0.0.1
     port: 6379
+    host: aeowuguozhi1.redis.rds.aliyuncs.com
+    timeout: 5000
+    password: iloveyou19991019!
     database: 0
-    password: root
-    timeout: 1000
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: -1ms
+        max-idle: 8                         #空闲
+        min-idle: 0
+    client-type: jedis                       #也可以切换lettuce
 
 mybatis:
-  mapper-locations: classpath:mybatis/mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml
 #  config-location: classpath:mybatis/mybatis-config.xml
   configuration:
     map-underscore-to-camel-case: true                                  #开启驼峰命名模式
 
 server:
-  port: 8888
+  port: 8080
+
+
