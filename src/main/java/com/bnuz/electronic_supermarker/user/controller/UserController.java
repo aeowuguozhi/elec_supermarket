@@ -13,10 +13,12 @@
 
 package com.bnuz.electronic_supermarker.user.controller;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.bnuz.electronic_supermarker.common.dto.SysResult;
 import com.bnuz.electronic_supermarker.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarker.common.exception.MsgException;
 import com.bnuz.electronic_supermarker.common.javaBean.User;
+import com.bnuz.electronic_supermarker.common.utils.JwtUtil;
 import com.bnuz.electronic_supermarker.common.utils.MD5Utils;
 import com.bnuz.electronic_supermarker.user.dto.UserDto;
 import com.bnuz.electronic_supermarker.user.dto.UserRegisterDto;
@@ -32,6 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+//@CrossOrigin        //跨域
 @RestController
 @Slf4j
 public class UserController {
@@ -51,7 +54,9 @@ public class UserController {
     //
         try{
             this.userService.registerUser(user,password2);
-            return new SysResult(SysResultEnum.Created.getIndex(),"OK",user.getId());
+            Map<String,Object> result = new HashMap<>();
+            result.put("userId",user.getId());
+            return new SysResult(SysResultEnum.Created.getIndex(),"OK",result);
         }catch (MsgException e){
             e.printStackTrace();
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
@@ -72,7 +77,9 @@ public class UserController {
                                    @RequestParam("password") String password){
         try{
             String token = this.userService.login(account,password);
-            return new SysResult(SysResultEnum.SUCCESS.getIndex(),"登录成功!",token);
+            Map<String,Object> result = new HashMap<>();
+            result.put("token",token);
+            return new SysResult(SysResultEnum.SUCCESS.getIndex(),"登录成功!",result);
         }catch (MsgException e){
             e.printStackTrace();
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
@@ -83,22 +90,30 @@ public class UserController {
     }
 
     /**
-     * 获取用户信息
+     * 获取用户信息  先从redis缓存里找，，，，，待定
      * @param request
      * @return
      */
-//    @GetMapping("/user/info")
-//    public SysResult getUserInfo(HttpServletRequest request){
-//        try{
-//
-//            return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),"null");
-//        }catch (MsgException e){
-//            e.printStackTrace();
-//            return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),e.getMessage(),null);
-//        }
-//    }
+    @GetMapping("/user/info")
+    public SysResult getUserInfo(HttpServletRequest request){
+        try{
+            //TODO 先从redis里面找，参考supermaket项目。
+            //登陆拦截器已经做了验证了。
+            String token = request.getHeader("token");
+            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
+            String userId = decodedJWT.getClaim("id").asString();
+            String account = decodedJWT.getClaim("account").asString();
+            User user = this.userService.getById(userId);
+            Map<String,Object> result = new HashMap<>();
+            result.put("user",user);
+            return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),result);
+        }catch (MsgException e){
+            e.printStackTrace();
+            return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),e.getMessage(),null);
+        }
+    }
 
 }

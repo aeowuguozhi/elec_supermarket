@@ -47,14 +47,16 @@ public class AdminWebConfig implements WebMvcConfigurer {
     /**
      * 配置跨域   https://blog.csdn.net/weixin_42036952/article/details/88564647
      * @param registry
+     * ERROR:When allowCredentials is true, allowedOrigins cannot contain the special value "*" since that cannot be set on the "Access-Control-Allow-Origin" response header. To allow credentials to a set of origins, list them explicitly or consider using "allowedOriginPatterns" instead.
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")             //允许跨域的域名，可以用*表示允许任何域名使用
+                .allowedOriginPatterns("*")
+//                .allowedOrigins("*")             //允许跨域的域名，可以用*表示允许任何域名使用
                 .allowedMethods("*")             //允许任何方法（post、get等）
                 .allowedHeaders("*")             //允许任何请求头
-//                .allowCredentials(true)          //带上cookie信息
+                .allowCredentials(true)          //带上cookie信息     s
                 .exposedHeaders(HttpHeaders.SET_COOKIE).maxAge(3600L);
     }
 }

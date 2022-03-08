@@ -12,6 +12,7 @@
 
 package com.bnuz.electronic_supermarker;
 
+import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.bnuz.electronic_supermarker.common.utils.JwtUtil;
 import org.joda.time.DateTime;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootTest
-class jwtTest {
+class JwtTest {
 
     @Test
     void jwtToken() {
@@ -39,6 +40,12 @@ class jwtTest {
         String account = decodedJWT.getClaim("account").asString();
         Integer type = decodedJWT.getClaim("type").asInt();
         System.out.println();
+    }
+
+    @Test
+    void decodeToken(){
+        String token = "";
+        JwtUtil.verifyToken(token);
     }
 
     @Test
