@@ -24,8 +24,11 @@ import com.bnuz.electronic_supermarker.user.dto.UserDto;
 import com.bnuz.electronic_supermarker.user.dto.UserRegisterDto;
 import com.bnuz.electronic_supermarker.user.service.UserService;
 import com.bnuz.electronic_supermarker.user.service.implement.UserServiceImpl;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.RedisConnectionFailureException;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -91,19 +94,13 @@ public class UserController {
 
     /**
      * 获取用户信息  先从redis缓存里找，，，，，待定
-     * @param request
+     * @param userId
      * @return
      */
     @GetMapping("/user/info")
-    public SysResult getUserInfo(HttpServletRequest request){
+    public SysResult getUserInfo(String userId){
         try{
-            //TODO 先从redis里面找，参考supermaket项目。
-            //登陆拦截器已经做了验证了。
-            String token = request.getHeader("token");
-            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
-            String userId = decodedJWT.getClaim("id").asString();
-            String account = decodedJWT.getClaim("account").asString();
-            User user = this.userService.getById(userId);
+            User user = this.userService.getInfo(userId);
             Map<String,Object> result = new HashMap<>();
             result.put("user",user);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),result);

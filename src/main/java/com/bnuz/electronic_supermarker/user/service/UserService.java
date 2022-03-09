@@ -35,5 +35,12 @@ public interface UserService extends IService<User> {
      */
     String login(String account, String password);
 
+    /**
+     * 通过userId获取用户信息。
+     * @param userId
+     * @return
+     */
+    User getInfo(String userId);
+
 
 }

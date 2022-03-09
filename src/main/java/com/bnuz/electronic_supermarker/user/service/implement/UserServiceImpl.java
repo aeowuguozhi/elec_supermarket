@@ -29,7 +29,9 @@ import com.bnuz.electronic_supermarker.user.dto.UserDto;
 import com.bnuz.electronic_supermarker.user.enums.UserStateEnum;
 import com.bnuz.electronic_supermarker.user.exception.PasswordErrorException;
 import com.bnuz.electronic_supermarker.user.service.UserService;
+import com.google.gson.Gson;
 import io.netty.util.internal.StringUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.RedisConnectionFailureException;
@@ -46,6 +48,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@Slf4j
 @Service
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
 
@@ -135,9 +138,63 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         }catch (MsgException e){
             throw e;
         }catch(RedisConnectionFailureException e){
+            log.warn(e.getMessage(),e);
             throw new MsgException("Redis缓存连接失败!");
         } catch (Exception e){
             throw e;
         }
     }
+
+
+    /**
+     * 获取用户信息
+     * @param userId
+     * @return
+     */
+    @Override
+    public User getInfo(String userId) {
+        Boolean exists = null;
+        try {
+            //先从redis里面找，参考supermaket项目。
+            //登陆拦截器已经做了验证了。
+            exists = this.redisTemplate.hasKey(User.class.getSimpleName() + "_" + userId);
+        }catch (RedisConnectionFailureException e) {
+            //Redis连接失效了，直接数据库查。
+            log.warn(e.getMessage(),e);
+            return this.userdao.selectById(userId);
+        }
+        try{
+            //Redis连接成功，但是没有在缓存中找到对应的用户信息。数据库查找然后存到redis
+            User user = null;
+            if(exists == null || !exists){
+                user = this.userdao.selectById(userId);
+                //数据库查不到
+                if(user == null){
+                    throw new MsgException("查无此人");
+                }
+                this.redisTemplate.opsForValue().set(User.class.getSimpleName() + "_" + user.getId(),GsonUtil.getGson().toJson(user));
+                return user;
+            }else{
+                //从缓存中取出用户信息。
+                String jsonData = this.redisTemplate.opsForValue().get(User.class.getSimpleName() + "_" + userId);
+                user = GsonUtil.getGson().fromJson(jsonData,User.class);
+                return user;
+            }
+        }catch (MsgException e){
+            throw e;
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
