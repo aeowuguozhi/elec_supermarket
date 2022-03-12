@@ -13,6 +13,7 @@
 package com.bnuz.electronic_supermarker.user.service.implement;
 
 import ch.qos.logback.core.util.TimeUtil;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -20,10 +21,7 @@ import com.bnuz.electronic_supermarker.common.db.DS;
 import com.bnuz.electronic_supermarker.common.enums.UserTypeEnum;
 import com.bnuz.electronic_supermarker.common.exception.MsgException;
 import com.bnuz.electronic_supermarker.common.javaBean.User;
-import com.bnuz.electronic_supermarker.common.utils.CalendarUtils;
-import com.bnuz.electronic_supermarker.common.utils.GsonUtil;
-import com.bnuz.electronic_supermarker.common.utils.JwtUtil;
-import com.bnuz.electronic_supermarker.common.utils.MD5Utils;
+import com.bnuz.electronic_supermarker.common.utils.*;
 import com.bnuz.electronic_supermarker.user.dao.UserDao;
 import com.bnuz.electronic_supermarker.user.dto.UserDto;
 import com.bnuz.electronic_supermarker.user.enums.UserStateEnum;
@@ -44,6 +42,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -118,7 +117,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public String login(String account,String password) {
+    public Map<String,String> login(String account,String password) {
         try{
             QueryWrapper<User> wrapper = new QueryWrapper();
             wrapper.eq("account",account).eq("password",MD5Utils.md5(password));
@@ -132,7 +131,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
                 Payload.put("type", UserTypeEnum.USER.getName());
                 String token = JwtUtil.createJwtToken(Payload, 120);//设置负载，设置token过期时间 120minutes
                 redisTemplate.opsForValue().set(User.class.getSimpleName() + "_"+ userDB.getId(), GsonUtil.getGson().toJson(userDB));
-                return token;
+                Map<String,String>map = new HashMap<>();
+                map.put("token",token);
+                map.put("userId",userDB.getId());
+                return map;
             }
             throw new MsgException("登陆失败,用户名或密码错误");
         }catch (MsgException e){
@@ -152,8 +154,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
      * @return
      */
     @Override
-    public User getInfo(String userId) {
+    public User getInfo(String userId, HttpServletRequest request) {
         Boolean exists = null;
+        //token里面的userId跟请求的userId不一致。
+        if(JudgeUserIdUtil.Judge(request,userId) == false){
+            throw new MsgException("非法访问,请验证token或者用户ID");
+        }
         try {
             //先从redis里面找，参考supermaket项目。
             //登陆拦截器已经做了验证了。

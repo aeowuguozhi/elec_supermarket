@@ -5,6 +5,7 @@ import com.bnuz.electronic_supermarker.common.javaBean.User;
 import com.bnuz.electronic_supermarker.user.dto.UserDto;
 import org.springframework.validation.Errors;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -33,14 +34,14 @@ public interface UserService extends IService<User> {
      * @param password
      * @return
      */
-    String login(String account, String password);
+    Map<String,String> login(String account, String password);
 
     /**
      * 通过userId获取用户信息。
      * @param userId
      * @return
      */
-    User getInfo(String userId);
+    User getInfo(String userId, HttpServletRequest request);
 
 
 }

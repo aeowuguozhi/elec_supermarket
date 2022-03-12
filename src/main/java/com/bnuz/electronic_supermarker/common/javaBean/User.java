@@ -14,7 +14,6 @@ package com.bnuz.electronic_supermarker.common.javaBean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.sun.istack.internal.NotNull;
 import lombok.*;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.annotation.Validated;

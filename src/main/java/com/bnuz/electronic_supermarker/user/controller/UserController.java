@@ -79,9 +79,7 @@ public class UserController {
     public SysResult login(@RequestParam("account") String account,
                                    @RequestParam("password") String password){
         try{
-            String token = this.userService.login(account,password);
-            Map<String,Object> result = new HashMap<>();
-            result.put("token",token);
+            Map<String,String> result = this.userService.login(account,password);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(),"登录成功!",result);
         }catch (MsgException e){
             e.printStackTrace();
@@ -98,9 +96,9 @@ public class UserController {
      * @return
      */
     @GetMapping("/user/info")
-    public SysResult getUserInfo(String userId){
+    public SysResult getUserInfo(@RequestParam("userId") String userId,HttpServletRequest request){
         try{
-            User user = this.userService.getInfo(userId);
+            User user = this.userService.getInfo(userId,request);
             Map<String,Object> result = new HashMap<>();
             result.put("user",user);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),result);

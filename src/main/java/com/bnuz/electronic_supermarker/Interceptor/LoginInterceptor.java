@@ -13,6 +13,7 @@
 package com.bnuz.electronic_supermarker.Interceptor;
 
 import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.bnuz.electronic_supermarker.common.dto.SysResult;
 import com.bnuz.electronic_supermarker.common.exception.MsgException;
@@ -38,15 +39,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 //        boolean token = (boolean)request.getAttribute("token");
         try{
             String token = request.getHeader("token");
-//            Cookie[] cookies = request.getCookies();
-//            for (Cookie c:cookies
-//            ) {
-//                log.info(c.getName() + ":" + c.getValue());
-//                if(c.getName().equals("token")){
-//                    token = c.getValue();
-//                    break;
-//                }
-//            }
             if(token == null || token.equals("")){
                 throw new MsgException("未携带token");
             }
@@ -57,7 +49,10 @@ public class LoginInterceptor implements HandlerInterceptor {
             throw e;
         }catch (JWTDecodeException e){
             throw new MsgException("token过期，请重新登录");
-        }catch (Exception e){
+        }catch (TokenExpiredException e){
+            throw new MsgException("token过期，请重新登录");
+        }
+        catch (Exception e){
             throw e;
         }
     }
