@@ -49,7 +49,7 @@ spring:
         max-wait: -1ms
         max-idle: 8                         #空闲
         min-idle: 0
-    client-type: jedis                       #也可以切换lettuce
+    client-type: jedis                        #也可以切换lettuce
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
