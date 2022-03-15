@@ -40,6 +40,7 @@ spring:
   redis:
     port: 6379
     host: aeowuguozhi1.redis.rds.aliyuncs.com
+#    host: 1.12.233.114
     timeout: 5000
     password: iloveyou19991019!
     database: 0
@@ -58,6 +59,10 @@ mybatis:
     map-underscore-to-camel-case: true                                  #开启驼峰命名模式
 
 server:
-  port: 8080
+  port: 8099
+
+logging:
+  config: classpath:log4j2.xml
+
 
 

@@ -9,7 +9,6 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
-
 package com.bnuz.electronic_supermarket.user.service.implement;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -19,10 +18,13 @@ import com.bnuz.electronic_supermarket.common.exception.MsgException;
 import com.bnuz.electronic_supermarket.common.javaBean.User;
 import com.bnuz.electronic_supermarket.common.utils.*;
 import com.bnuz.electronic_supermarket.user.dao.UserDao;
+import com.bnuz.electronic_supermarket.user.dto.UserRegisterDto;
 import com.bnuz.electronic_supermarket.user.enums.UserStateEnum;
 import com.bnuz.electronic_supermarket.user.exception.PasswordErrorException;
 import com.bnuz.electronic_supermarket.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -45,6 +47,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    @Autowired
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Override
     public boolean checkAccount(String account){
         QueryWrapper<User> wrapper = new QueryWrapper<>();
@@ -55,8 +60,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
                 throw new MsgException("用户名已被注册");
             }
         }catch (MsgException e){
+            LOGGER.info(e.getMessage());
             throw e;
         }catch (Exception e){
+            LOGGER.error(e.getMessage());
             throw e;
         }
         return true;
@@ -64,37 +71,56 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     /**
      * 用户注册
-     * @param user
-     * @param password2
+     * @param userDto
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public void registerUser(User user, String password2) {
+    public String registerUser(UserRegisterDto userDto) {
         //账号能否使用
         try{
-            if(user.getAccount() == null || user.getAccount().equals("")){
+            if(userDto.getAccount() == null || userDto.getAccount().equals("")){
                 throw new MsgException("用户名不能为空");
             }
-            if(user.getPassword() == null || user.getPassword().equals("")){
+            if(userDto.getPassword() == null || userDto.getPassword().equals("")){
                 throw new MsgException("密码不能为空");
             }
-            checkAccount(user.getAccount());
+            checkAccount(userDto.getAccount());
             //密码一致性校验
-            if (!user.getPassword().equals(password2)) {
-                throw new PasswordErrorException("两次密码输入不一致");
-            }
+//            if (!user.getPassword().equals(password2)) {
+//                throw new PasswordErrorException("两次密码输入不一致");
+//            }
+            User user = new User();
+            userDto2user(userDto,user);
             user.setId(UUID.randomUUID().toString());   //UUID
             user.setPassword(MD5Utils.md5(user.getPassword()));   //MD5加密 密码
             user.setState(UserStateEnum.USING.getIndex());       //用户状态
             user.setCreateTime(CalendarUtils.getDateTime());     //创建时间
             userdao.insert(user);                                 //BaseMapper<User>
+            return user.getId();
         }catch (MsgException e){
+            LOGGER.info(e.getMessage());
             throw e;
         }catch (PasswordErrorException e){
+            LOGGER.info(e.getMessage());
             throw e;
         } catch (Exception e){
+            LOGGER.error(e.getMessage());
             throw e;
         }
+    }
+
+    private void userDto2user(UserRegisterDto userDto, User user) {
+        user.setWechatId(userDto.getWechatId());
+        user.setAccount(userDto.getAccount());
+        user.setAddress(userDto.getAddress());
+        user.setPassword(userDto.getPassword());
+        user.setEmail(userDto.getEmail());
+        user.setHeadImage(userDto.getHeadImage());
+        user.setIdCard(userDto.getIdCard());
+        user.setNickName(userDto.getNickName());
+        user.setPhoneNumber(userDto.getPhoneNumber());
+        user.setRealName(userDto.getRealName());
+        user.setNote(userDto.getNote());
     }
 
     /**
@@ -126,11 +152,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
             }
             throw new MsgException("登陆失败,用户名或密码错误");
         }catch (MsgException e){
+            LOGGER.info(e.getMessage());
             throw e;
         }catch(RedisConnectionFailureException e){
-            log.warn(e.getMessage(),e);
+            LOGGER.error("Redis缓存连接失败!");
             throw new MsgException("Redis缓存连接失败!");
         } catch (Exception e){
+            LOGGER.error(e.getMessage());
             throw e;
         }
     }
@@ -144,18 +172,21 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Override
     public User getInfo(String userId, HttpServletRequest request) {
         Boolean exists = null;
-        //token里面的userId跟请求的userId不一致。
-        if(JudgeUserIdUtil.Judge(request,userId) == false){
-            throw new MsgException("非法访问,请验证token或者用户ID");
-        }
         try {
-            //先从redis里面找，参考supermaket项目。
+            //token里面的userId跟请求的userId不一致。
+            if(JudgeUserIdUtil.Judge(request,userId) == false){
+                throw new MsgException("非法访问,请验证token或者用户ID");
+            }
+            //先从redis里面找，参考supermarket项目。
             //登陆拦截器已经做了验证了。
             exists = this.redisTemplate.hasKey(User.class.getSimpleName() + "_" + userId);
         }catch (RedisConnectionFailureException e) {
             //Redis连接失效了，直接数据库查。
-            log.warn(e.getMessage(),e);
+            LOGGER.error("Redis缓存连接失败!");
             return this.userdao.selectById(userId);
+        }catch (MsgException e){
+            LOGGER.info(e.getMessage());
+            throw e;
         }
         try{
             //Redis连接成功，但是没有在缓存中找到对应的用户信息。数据库查找然后存到redis
@@ -175,8 +206,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
                 return user;
             }
         }catch (MsgException e){
+            LOGGER.info(e.getMessage());
             throw e;
         }catch (Exception e){
+            LOGGER.error(e.getMessage());
             throw e;
         }
     }

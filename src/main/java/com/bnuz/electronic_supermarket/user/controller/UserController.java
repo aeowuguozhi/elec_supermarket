@@ -17,7 +17,9 @@ import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
 import com.bnuz.electronic_supermarket.common.javaBean.User;
+import com.bnuz.electronic_supermarket.user.dto.UserRegisterDto;
 import com.bnuz.electronic_supermarket.user.service.UserService;
+import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //@CrossOrigin        //跨域
+@Api(tags = "用户请求")
 @RestController
 @Slf4j
 public class UserController {
@@ -36,18 +39,17 @@ public class UserController {
 
     /**
      * 用户注册
-     * @param user
-     * @param password2
+     * @param
      * @return
      */
+    @ApiOperation(value = "用户注册")
+    @ApiImplicitParam(name = "userDto",value = "用户Dto")
     @PostMapping("/register/user")
-    public SysResult registerUser(@RequestBody User user, @RequestParam("password2") String password2
-                                  ){
-    //
+    public SysResult registerUser(@RequestBody UserRegisterDto userDto){
         try{
-            this.userService.registerUser(user,password2);
+            String uid = this.userService.registerUser(userDto);
             Map<String,Object> result = new HashMap<>();
-            result.put("userId",user.getId());
+            result.put("userId",uid);
             return new SysResult(SysResultEnum.Created.getIndex(),"OK",result);
         }catch (MsgException e){
             e.printStackTrace();
@@ -64,6 +66,11 @@ public class UserController {
      * @param password
      * @return
      */
+    @ApiOperation(value = "用户登陆")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name = "account",value = "账号",required = true),
+            @ApiImplicitParam(paramType = "query",name = "password",value = "密码",required = true)
+    })
     @GetMapping("/login/user")
     public SysResult login(@RequestParam("account") String account,
                                    @RequestParam("password") String password){
@@ -80,12 +87,17 @@ public class UserController {
     }
 
     /**
-     * 获取用户信息  先从redis缓存里找，，，，，待定
+     * 获取用户信息,HttpRequest的header需要放token
      * @param userId
      * @return
      */
-    @GetMapping("/user/info")
-    public SysResult getUserInfo(@RequestParam("userId") String userId,HttpServletRequest request){
+    @ApiOperation(value = "通过用户ID获取用户信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",name = "userId",value = "用户ID",required = true),
+            @ApiImplicitParam(paramType = "header",name = "token",value = "用户token",required = true)
+    })
+    @GetMapping("/user/info/{userId}")
+    public SysResult getUserInfo(@PathVariable("userId") String userId,HttpServletRequest request){
         try{
             User user = this.userService.getInfo(userId,request);
             Map<String,Object> result = new HashMap<>();

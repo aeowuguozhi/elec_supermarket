@@ -40,8 +40,9 @@ public class AdminWebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")             //拦截所有请求，包括静态资源
-                .excludePathPatterns("/","/login/*","/register/*","/favicon.ico","/**/error","/res/*");          //放行的请求
-    }
+                .excludePathPatterns("/","/login/*","/register/*","/favicon.ico","/**/error","/res/*",
+                        "/swagger-resources/**","/swagger-ui.html/**","/swagger-ui/*","/v3/api-docs");          //放行的请求
+    }//                          index.html 登录     注册                              error     静态资源     swagger-ui
 
     /**
      * 配置跨域   https://blog.csdn.net/weixin_42036952/article/details/88564647

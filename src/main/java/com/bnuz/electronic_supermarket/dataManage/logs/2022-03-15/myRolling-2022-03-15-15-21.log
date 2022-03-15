@@ -1,0 +1,78 @@
+[2022-03-15 15:48:39.895] [INFO ] org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55) com.bnuz.electronic_supermarket.ElectronicSupermarketApplication - Starting ElectronicSupermarketApplication using Java 1.8.0_251 on LAPTOP-T0L5AU5O with PID 3428 (D:\SeniorCourse\毕业设计\毕设作品电子商城\target\classes started by AEO WUGUOZHI in D:\SeniorCourse\毕业设计\毕设作品电子商城)
+[2022-03-15 15:48:39.900] [INFO ] org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:659) com.bnuz.electronic_supermarket.ElectronicSupermarketApplication - No active profile set, falling back to default profiles: default
+[2022-03-15 15:48:39.959] [INFO ] org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:255) org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-03-15 15:48:39.960] [INFO ] org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:255) org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-03-15 15:48:41.179] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-15 15:48:41.180] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-03-15 15:48:41.201] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 Elasticsearch repository interfaces.
+[2022-03-15 15:48:41.206] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-15 15:48:41.207] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-03-15 15:48:41.218] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-03-15 15:48:41.238] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-15 15:48:41.238] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-03-15 15:48:41.248] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
+[2022-03-15 15:48:41.260] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-15 15:48:41.261] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-03-15 15:48:41.277] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+[2022-03-15 15:48:42.047] [INFO ] org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108) org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+[2022-03-15 15:48:42.057] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+[2022-03-15 15:48:42.058] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[2022-03-15 15:48:42.058] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+[2022-03-15 15:48:42.213] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2022-03-15 15:48:42.214] [INFO ] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:290) org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2253 ms
+[2022-03-15 15:48:42.321] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.user.service.implement.UserServiceImpl.LOGGER
+[2022-03-15 15:48:42.376] [INFO ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure.dataSource(DruidDataSourceAutoConfigure.java:56) com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure - Init DruidDataSource
+[2022-03-15 15:48:42.628] [INFO ] com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:994) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[2022-03-15 15:48:45.152] [INFO ] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58) org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2022-03-15 15:48:47.404] [INFO ] org.springframework.data.elasticsearch.support.VersionInfo.logVersions(VersionInfo.java:62) org.springframework.data.elasticsearch.support.VersionInfo - Version Spring Data Elasticsearch: 4.2.6
+[2022-03-15 15:48:47.404] [INFO ] org.springframework.data.elasticsearch.support.VersionInfo.logVersions(VersionInfo.java:63) org.springframework.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client in build: 7.12.1
+[2022-03-15 15:48:47.405] [INFO ] org.springframework.data.elasticsearch.support.VersionInfo.logVersions(VersionInfo.java:64) org.springframework.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client used: 7.12.1
+[2022-03-15 15:49:08.602] [ERROR] com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2781) com.alibaba.druid.pool.DruidDataSource - create connection SQLException, url: jdbc:mysql://12.233.114:3306/elec_market?characterEncoding=utf-8&useSSL=false, errorCode 0, state 08S01
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:156) ~[druid-1.1.22.jar:1.1.22]
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:787) ~[druid-1.1.22.jar:1.1.22]
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.22.jar:1.1.22]
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:218) ~[druid-1.1.22.jar:1.1.22]
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.22.jar:1.1.22]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1646) ~[druid-1.1.22.jar:1.1.22]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1710) ~[druid-1.1.22.jar:1.1.22]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2779) [druid-1.1.22.jar:1.1.22]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_251]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_251]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_251]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_251]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:948) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:818) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	... 11 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_251]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_251]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_251]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_251]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_251]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_251]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_251]
+	at java.net.Socket.connect(Socket.java:606) ~[?:1.8.0_251]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:156) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:948) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:818) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	... 11 more

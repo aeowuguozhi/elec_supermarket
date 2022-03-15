@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.3</version>
+        <version>2.5.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.bnuz</groupId>
-    <artifactId>electronic_supermarker</artifactId>
+    <artifactId>electronic_supermarket</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>electronic_supermarker</name>
+    <name>electronic_supermarket</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
@@ -32,20 +32,24 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
-        <!--引入web场景-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!--引入web场景-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--引入mybatis-->
         <dependency>
@@ -99,7 +103,7 @@
             <artifactId>java-jwt</artifactId>
             <version>3.4.0</version>
         </dependency>
-<!--        引入jdbc-->
+        <!--引入jdbc-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -116,7 +120,7 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.22</version>
         </dependency>
-        <!--        引入mybatis-plus依赖  内含mybatis-starter和data-jdbc -->
+        <!--引入mybatis-plus依赖  内含mybatis-starter和data-jdbc -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -126,24 +130,30 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
-        <!--        slf4j日志门面，面向日志门面的日志接口进行开发-->
+        <!--slf4j日志门面，面向日志门面的日志接口进行开发-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.32</version>
+            <version>1.7.33</version>
         </dependency>
-<!--        导入log4j2的starter-->
+<!--        log4j2 starter-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
+            <version>2.6.3</version>
         </dependency>
-        <!--        使用logback日志实现-->
-<!--        <dependency>-->
-<!--            <groupId>ch.qos.logback</groupId>-->
-<!--            <artifactId>logback-classic</artifactId>-->
-<!--            <version>1.2.10</version>-->
-<!--        </dependency>-->
-
+        <!--异步日志依赖-->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.3.4</version>
+        </dependency>
+        <!--导入swagger3.0的依赖-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -169,5 +179,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

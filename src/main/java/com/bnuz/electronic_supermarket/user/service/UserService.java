@@ -2,6 +2,7 @@ package com.bnuz.electronic_supermarket.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.bnuz.electronic_supermarket.common.javaBean.User;
+import com.bnuz.electronic_supermarket.user.dto.UserRegisterDto;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -21,10 +22,8 @@ public interface UserService extends IService<User> {
     /**
      *用户注册，注册前需要检查用户名是否可用
      * @param user
-     * @param password2
-
      */
-    void registerUser(User user,String password2);
+    String registerUser(UserRegisterDto user);
 
     /**
      * 登录接口 用户用账号和密码进行登陆，返回token

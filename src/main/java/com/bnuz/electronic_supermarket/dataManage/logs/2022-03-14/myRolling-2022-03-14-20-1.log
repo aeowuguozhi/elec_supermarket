@@ -1,0 +1,87 @@
+[2022-03-14 20:13:29.885] [INFO ] org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55) com.bnuz.electronic_supermarket.ElectronicSupermarketApplication - Starting ElectronicSupermarketApplication using Java 1.8.0_251 on LAPTOP-T0L5AU5O with PID 18428 (D:\SeniorCourse\毕业设计\毕设作品电子商城\target\classes started by AEO WUGUOZHI in D:\SeniorCourse\毕业设计\毕设作品电子商城)
+[2022-03-14 20:13:29.899] [INFO ] org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:637) com.bnuz.electronic_supermarket.ElectronicSupermarketApplication - No active profile set, falling back to default profiles: default
+[2022-03-14 20:13:29.956] [INFO ] org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:255) org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-03-14 20:13:29.957] [INFO ] org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:255) org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-03-14 20:13:31.496] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-14 20:13:31.497] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-03-14 20:13:31.525] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 0 Elasticsearch repository interfaces.
+[2022-03-14 20:13:31.531] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-14 20:13:31.532] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-03-14 20:13:31.544] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-03-14 20:13:31.572] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-14 20:13:31.572] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-03-14 20:13:31.587] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+[2022-03-14 20:13:31.603] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-14 20:13:31.605] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-03-14 20:13:31.628] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+[2022-03-14 20:13:32.532] [INFO ] org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108) org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+[2022-03-14 20:13:32.541] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+[2022-03-14 20:13:32.542] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[2022-03-14 20:13:32.542] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[2022-03-14 20:13:32.682] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2022-03-14 20:13:32.682] [INFO ] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:290) org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2724 ms
+[2022-03-14 20:13:32.792] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.user.service.implement.UserServiceImpl.LOGGER
+[2022-03-14 20:13:32.839] [INFO ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure.dataSource(DruidDataSourceAutoConfigure.java:56) com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure - Init DruidDataSource
+[2022-03-14 20:13:33.161] [INFO ] com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:994) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[2022-03-14 20:13:35.321] [INFO ] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69) springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2022-03-14 20:13:35.455] [INFO ] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58) org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2022-03-14 20:13:37.640] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+[2022-03-14 20:13:37.653] [INFO ] org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220) org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+[2022-03-14 20:13:37.654] [INFO ] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160) springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[2022-03-14 20:13:37.679] [INFO ] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163) springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[2022-03-14 20:13:37.684] [WARN ] org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+[2022-03-14 20:13:37.695] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2029) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+[2022-03-14 20:13:37.701] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2101) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+[2022-03-14 20:13:38.366] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8099"]
+[2022-03-14 20:13:38.367] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+[2022-03-14 20:13:38.372] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8099"]
+[2022-03-14 20:13:38.374] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8099"]
+[2022-03-14 20:13:38.381] [INFO ] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logMessage(ConditionEvaluationReportLoggingListener.java:136) org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2022-03-14 20:13:38.407] [ERROR] org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:821) org.springframework.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.15.jar:5.3.15]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:1.8.0_251]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.6.3.jar:2.6.3]
+	at com.bnuz.electronic_supermarket.ElectronicSupermarketApplication.main(ElectronicSupermarketApplication.java:10) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_251]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.6.3.jar:2.6.3]
+Caused by: java.lang.NullPointerException
+	at springfox.documentation.spi.service.contexts.Orderings$8.compare(Orderings.java:112) ~[springfox-spi-2.9.2.jar:null]
+	at springfox.documentation.spi.service.contexts.Orderings$8.compare(Orderings.java:109) ~[springfox-spi-2.9.2.jar:null]
+	at com.google.common.collect.ComparatorOrdering.compare(ComparatorOrdering.java:37) ~[guava-20.0.jar:?]
+	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:355) ~[?:1.8.0_251]
+	at java.util.TimSort.sort(TimSort.java:220) ~[?:1.8.0_251]
+	at java.util.Arrays.sort(Arrays.java:1438) ~[?:1.8.0_251]
+	at com.google.common.collect.Ordering.sortedCopy(Ordering.java:855) ~[guava-20.0.jar:?]
+	at springfox.documentation.spring.web.plugins.WebMvcRequestHandlerProvider.requestHandlers(WebMvcRequestHandlerProvider.java:57) ~[springfox-spring-web-2.9.2.jar:null]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper$2.apply(DocumentationPluginsBootstrapper.java:138) ~[springfox-spring-web-2.9.2.jar:null]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper$2.apply(DocumentationPluginsBootstrapper.java:135) ~[springfox-spring-web-2.9.2.jar:null]
+	at com.google.common.collect.Iterators$7.transform(Iterators.java:750) ~[guava-20.0.jar:?]
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:47) ~[guava-20.0.jar:?]
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:47) ~[guava-20.0.jar:?]
+	at com.google.common.collect.MultitransformedIterator.hasNext(MultitransformedIterator.java:52) ~[guava-20.0.jar:?]
+	at com.google.common.collect.MultitransformedIterator.hasNext(MultitransformedIterator.java:50) ~[guava-20.0.jar:?]
+	at com.google.common.collect.ImmutableList.copyOf(ImmutableList.java:249) ~[guava-20.0.jar:?]
+	at com.google.common.collect.ImmutableList.copyOf(ImmutableList.java:209) ~[guava-20.0.jar:?]
+	at com.google.common.collect.FluentIterable.toList(FluentIterable.java:614) ~[guava-20.0.jar:?]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.defaultContextBuilder(DocumentationPluginsBootstrapper.java:111) ~[springfox-spring-web-2.9.2.jar:null]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.buildContext(DocumentationPluginsBootstrapper.java:96) ~[springfox-spring-web-2.9.2.jar:null]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:167) ~[springfox-spring-web-2.9.2.jar:null]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.15.jar:5.3.15]
+	... 19 more
