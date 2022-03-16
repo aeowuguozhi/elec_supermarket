@@ -1,8 +1,12 @@
 package com.bnuz.electronic_supermarket.businessman.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.bnuz.electronic_supermarket.businessman.dto.BusinessmanDto;
+import com.bnuz.electronic_supermarket.common.javaBean.Businessman;
 
-public interface BusinessmanService {
+import java.util.Map;
+
+public interface BusinessmanService extends IService<Businessman> {
 
     /**
      * 商家注册
@@ -10,4 +14,15 @@ public interface BusinessmanService {
      * @return
      */
     String register(BusinessmanDto businessmanDto);
+
+    /**
+     * 商家登录
+     * @param name
+     * @param password
+     * @return token,businessmanId
+     */
+    Map<String,Object> login(String name,String password);
+
+
+
 }

@@ -17,7 +17,8 @@ import com.bnuz.electronic_supermarket.businessman.service.BusinessmanService;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,14 +26,30 @@ import java.util.Map;
 @RestController
 public class BusinessmanController {
 
+    @Autowired
     private BusinessmanService businessmanService;
 
-    public SysResult register(BusinessmanDto manDto){
+    @PostMapping("/register/businessman")
+    public SysResult register(@RequestBody BusinessmanDto manDto){
         try{
             String bid = this.businessmanService.register(manDto);
             Map<String,Object> result = new HashMap<>();
             result.put("businessmanId",bid);
             return new SysResult(SysResultEnum.Created.getIndex(),"OK",result);
+        }catch (MsgException e){
+            e.printStackTrace();
+            return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),e.getMessage(),null);
+        }
+    }
+
+    @GetMapping("/login/businessman")
+    public SysResult login(@RequestParam("account") String account,@RequestParam("password") String password){
+        try{
+            Map<String, Object> map = this.businessmanService.login(account, password);
+            return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),map);
         }catch (MsgException e){
             e.printStackTrace();
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);

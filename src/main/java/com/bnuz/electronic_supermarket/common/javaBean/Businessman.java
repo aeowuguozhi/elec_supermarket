@@ -12,25 +12,41 @@
 
 package com.bnuz.electronic_supermarket.common.javaBean;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * javaBean:mybatis-plus,API
+ */
+
 @ToString
 @NoArgsConstructor
 @Data
+@TableName("businessman")
 public class Businessman {
-    private Integer id;
+    private String id;
     private String account;
     private String password;
+    @TableField("headImage")
     private String headImage;
+    @TableField("realName")
     private String realName;
+    @TableField("phoneNumber")
     private String phoneNumber;
+    @TableField("idCard")
     private String idCard;
+    @TableField("idCardFontPict")
     private String idCardFontPict;
+    @TableField("idCardBackPict")
     private String idCardBackPict;
     private Integer state;
+    @TableField("createTime")
     private String createTime;
+    @TableField("updateTime")
     private String updateTime;
+    @TableField("wechatId")
     private String wechatId;
 }
