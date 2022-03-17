@@ -20,7 +20,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class Administrator {
-    private Integer id;
+    private String id;
     private Integer deptId;
     private String account;
     private String password;

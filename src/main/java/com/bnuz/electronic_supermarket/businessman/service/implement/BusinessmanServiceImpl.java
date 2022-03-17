@@ -12,6 +12,7 @@
 
 package com.bnuz.electronic_supermarket.businessman.service.implement;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bnuz.electronic_supermarket.businessman.dao.BusinessmanDao;
@@ -19,20 +20,19 @@ import com.bnuz.electronic_supermarket.businessman.dto.BusinessmanDto;
 import com.bnuz.electronic_supermarket.businessman.service.BusinessmanService;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
 import com.bnuz.electronic_supermarket.common.javaBean.Businessman;
-import com.bnuz.electronic_supermarket.common.utils.GsonUtil;
-import com.bnuz.electronic_supermarket.common.utils.JwtUtil;
-import com.bnuz.electronic_supermarket.common.utils.LocalDateTimeUtils;
+import com.bnuz.electronic_supermarket.common.utils.*;
 import com.bnuz.electronic_supermarket.user.enums.UserStateEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @Service
 public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Businessman> implements BusinessmanService{
@@ -46,7 +46,7 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
     private final static Logger LOGGER = LoggerFactory.getLogger(BusinessmanServiceImpl.class);
 
     /**
-     * 用户注册
+     * 商家注册
      * @param businessmanDto
      * @return businessmanId
      */
@@ -70,6 +70,7 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
             }
             Businessman man = new Businessman();
             Dto2man(businessmanDto,man);
+            man.setPassword(MD5Utils.md5(man.getPassword()));
             man.setState(UserStateEnum.USING.getIndex());
             man.setId(UUID.randomUUID().toString());
             man.setCreateTime(LocalDateTimeUtils.getLocalDateTime());
@@ -77,10 +78,11 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
             return man.getId();
         }catch (MsgException e){
             LOGGER.info(e.getMessage());
+            throw e;
         }catch(Exception e){
             LOGGER.error(e.getMessage());
+            throw e;
         }
-        return null;
     }
 
     /** 
@@ -93,7 +95,7 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
     public Map<String, Object> login(String account, String password) {
         try{
             QueryWrapper<Businessman> wrapper = new QueryWrapper<>();
-            wrapper.eq("account",account).eq("password",password);
+            wrapper.eq("account",account).eq("password",MD5Utils.md5(password));
             Businessman businessman = businessmanDao.selectOne(wrapper);
             if(businessman == null){
                 throw new MsgException("登录失败，请检查用户名/密码");
@@ -109,10 +111,70 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
             return result;
         }catch (MsgException e){
             LOGGER.info(e.getMessage());
+            throw e;
         }catch (Exception e){
             LOGGER.error(e.getMessage());
+            throw e;
         }
-        return null;
+    }
+
+    /**
+     * 应该从redis里面查，然后从db查
+     * @param ids
+     * @return 查询成功的businessmen，查询失败的notFoundIds
+     */
+    @Override
+    public Map<String,Object> getByIds(List<String> ids, HttpServletRequest request) {
+        try{
+            //从token里取出自己商家ID
+            String token = request.getHeader("token");
+            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
+            String myId = decodedJWT.getClaim("businessmanId").asString();
+            List<String>notFoundIds = new ArrayList<>();
+            int length = ids.size();
+            String key,json_data,id;
+            ValueOperations<String, String> operations = this.redisTemplate.opsForValue();
+            List<Businessman> result = new ArrayList<>();
+            Map<String,Object> fin = new HashMap<>();
+            //遍历ids
+            for(int i = 0;i < length;i++){
+                id = ids.get(i);
+                //没有权限查询别人的ID,其实这里应该用selectById()就好了
+                if(!myId.equals(id)){
+                    notFoundIds.add(id);
+                    continue;
+                }
+                key = Businessman.class.getSimpleName() + "_" + id;
+                if(this.redisTemplate.hasKey(key)){
+                    //redis里面存在这个key
+                    json_data = operations.get(key);
+                    Businessman businessman = GsonUtil.getGson().fromJson(json_data, Businessman.class);
+                    result.add(businessman);
+                }else{
+                    //从数据库中查询,查到的添加到redis
+                    Businessman man = this.businessmanDao.selectById(id);
+                    if(man == null){
+                        notFoundIds.add(id);
+                    }
+                    //添加到查询结果里
+                    result.add(man);
+                    //添加到redis
+                    operations.set(Businessman.class.getSimpleName()+"_"+man.getId(),GsonUtil.getGson().toJson(man));
+                }
+            }
+            fin.put("businessmen",result);
+            fin.put("notFoundIds",notFoundIds);
+            return fin;
+        }catch (RedisConnectionFailureException e){
+            LOGGER.error(e.getMessage());
+            throw e;
+        } catch (MsgException e){
+            LOGGER.info(e.getMessage());
+            throw e;
+        }catch (Exception e){
+            LOGGER.error(e.getMessage());
+            throw e;
+        }
     }
 
 

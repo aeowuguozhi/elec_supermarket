@@ -41,8 +41,9 @@ public class AdminWebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")             //拦截所有请求，包括静态资源
                 .excludePathPatterns("/","/login/*","/register/*","/favicon.ico","/**/error","/res/*",
-                        "/swagger-resources/**","/swagger-ui.html/**","/swagger-ui/*","/v3/api-docs");          //放行的请求
-    }//                          index.html 登录     注册                              error     静态资源     swagger-ui
+                        "/swagger-resources/**","/swagger-ui.html/**","/swagger-ui/*","/v3/api-docs"
+                        ,"/store/queryByIds","/store/queryByName","/brand/*","/specification/*");   //放行的请求
+    }//                          index.html 登录     注册      error     静态资源     swagger-ui  店铺所有人查看  品牌不需要token
 
     /**
      * 配置跨域   https://blog.csdn.net/weixin_42036952/article/details/88564647

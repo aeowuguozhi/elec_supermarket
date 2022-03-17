@@ -30,15 +30,15 @@ import org.springframework.web.bind.annotation.RestController;
 @ToString
 @ApiModel(value = "商人Dto")
 public class BusinessmanDto {
-    @ApiModelProperty("账号")
+    @ApiModelProperty(value = "账号",required = true)
     private String account;
-    @ApiModelProperty("密码")
+    @ApiModelProperty(value = "密码",required = true)
     private String password;
     @ApiModelProperty("头像")
     private String headIamge;
     @ApiModelProperty("真实姓名")
     private String realName;
-    @ApiModelProperty("手机号码")
+    @ApiModelProperty(value = "手机号码",required = true)
     private String phoneNumber;
     @ApiModelProperty("身份证号")
     private String idCard;

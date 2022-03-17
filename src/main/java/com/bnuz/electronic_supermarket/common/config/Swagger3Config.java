@@ -39,7 +39,7 @@ public class Swagger3Config {
         return new Docket(DocumentationType.OAS_30)    //指定swagger3.0版本
                 .groupName("开发组001")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.atguigu.boot.demo.controller.Hello"))//指定扫描的包 常用方式
+                .apis(RequestHandlerSelectors.basePackage("com.bnuz.electronic_supermarket.businessman.controller"))//指定扫描的包 常用方式
                 .build()
                 .apiInfo(apiInfo())
                 .enable(true);                        //   关闭/开启Api
@@ -61,16 +61,16 @@ public class Swagger3Config {
      * 开发组二
      */
 
-    Contact contact1 = new Contact("小志志", "https://blog.csdn.net/aeowuguozhi?type=blog", "1404734418@qq.com");
+    Contact contact1 = new Contact("吴国志", "https://blog.csdn.net/aeowuguozhi?type=blog", "1404734418@qq.com");
 
     //配置了Swagger的Docket的Bean实例
     //
     @Bean
     public Docket CreateRestApi1() {
         return new Docket(DocumentationType.OAS_30)    //指定swagger3.0版本
-                .groupName("开发组002")
+                .groupName("电子商城开发组")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bnuz.electronic_supermarket.user"))//指定扫描的包 常用方式
+                .apis(RequestHandlerSelectors.basePackage("com.bnuz.electronic_supermarket"))//指定扫描的包 常用方式
                 .build()
                 .apiInfo(apiInfo1())
                 .enable(true);                        //   关闭/开启Api
@@ -78,7 +78,7 @@ public class Swagger3Config {
 
     //配置Swagger信息  apiInfo
     private ApiInfo apiInfo1() {
-        return new ApiInfo("小志22的SwaggerAPI文档",
+        return new ApiInfo("吴国志的SwaggerAPI文档",
                 "电子商城项目",
                 "1.0",
                 "https://blog.csdn.net/aeowuguozhi?type=blog",

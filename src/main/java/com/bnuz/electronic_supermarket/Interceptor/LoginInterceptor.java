@@ -39,6 +39,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             if(token == null || token.equals("")){
                 throw new MsgException("未携带token");
             }
+            //TODO 未实现token超时自动刷新
             //验证token正确性和是否过期了。
             JwtUtil.verifyToken(token);
             return true;

@@ -173,7 +173,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     public User getInfo(String userId, HttpServletRequest request) {
         Boolean exists = null;
         try {
-            //token里面的userId跟请求的userId不一致。
+            //token里面的userId跟请求的userId不一致。鉴权：自己token的用户只能查看自己的信息.
             if(JudgeUserIdUtil.Judge(request,userId) == false){
                 throw new MsgException("非法访问,请验证token或者用户ID");
             }

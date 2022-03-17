@@ -20,7 +20,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class DeliveryStaff {
-    private Integer id;
+    private String id;
     private Integer companyId;
     private String account;
     private String password;

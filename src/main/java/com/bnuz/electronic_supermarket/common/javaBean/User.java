@@ -16,12 +16,14 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("user")           //注解就是user表，mybatis-plus的默认规则是：JavaBean的类名跟数据库表名一致，不一致就用这个写表名。
-public class User {
+public class User implements Serializable {
     private String id;
     @TableField("wechatId")
     private String wechatId;
