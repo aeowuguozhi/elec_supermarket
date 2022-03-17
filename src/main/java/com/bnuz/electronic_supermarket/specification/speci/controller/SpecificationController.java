@@ -78,7 +78,7 @@ public class SpecificationController {
             if(!b) throw new MsgException("删除失败");
             Map<String, Object> map = new HashMap<>();
             map.put("specificationId", id);
-            return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.SUCCESS.getName(), map);
+            return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);
         } catch (MsgException e) {
             LOGGER.info(e.getMessage());
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(), e.getMessage(), null);

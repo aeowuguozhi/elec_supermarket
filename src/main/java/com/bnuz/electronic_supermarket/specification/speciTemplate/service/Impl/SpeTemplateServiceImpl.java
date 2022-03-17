@@ -12,7 +12,11 @@
 
 package com.bnuz.electronic_supermarket.specification.speciTemplate.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.bnuz.electronic_supermarket.common.dto.SysResult;
+import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
 import com.bnuz.electronic_supermarket.common.javaBean.Specifictemplate;
 import com.bnuz.electronic_supermarket.common.utils.GsonUtil;
@@ -22,6 +26,7 @@ import com.bnuz.electronic_supermarket.specification.speciTemplate.service.SpeTe
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -117,6 +122,36 @@ public class SpeTemplateServiceImpl extends ServiceImpl<SpeTemplateMapper, Speci
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             throw e;
+        }
+    }
+
+    /**
+     * 将创建好的商品的ID和商品的名字回填到规格模板表中
+     * @param productId
+     * @param productName
+     * @param templateId
+     * @return
+     */
+    @Override
+    public SysResult saveBackProductId(String productId, String productName, String templateId) {
+        try{
+            //TODO unTest
+            //从数据库中取出数据
+            QueryWrapper<Specifictemplate>queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("id",templateId);
+            Specifictemplate template = templateDao.selectOne(queryWrapper);
+            //回填商品数据
+            template.setProductName(productName);
+            template.setProduct_id(productId);
+            //更新数据库
+            UpdateWrapper<Specifictemplate>updateWrapper = new UpdateWrapper<>();
+            updateWrapper.eq("id",template.getId());
+            int update = templateDao.update(template, updateWrapper);
+            if(update <= 0) throw new MsgException("回填商品数据到规格模板失败");
+            return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),null);
+        }catch (MsgException e){
+            LOGGER.info(e.getMessage());
+            return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),SysResultEnum.SYS_ERROR.getName(),null);
         }
     }
 }
