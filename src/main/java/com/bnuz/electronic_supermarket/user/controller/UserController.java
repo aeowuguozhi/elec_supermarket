@@ -52,10 +52,8 @@ public class UserController {
             result.put("userId",uid);
             return new SysResult(SysResultEnum.Created.getIndex(),"OK",result);
         }catch (MsgException e){
-            e.printStackTrace();
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
         }catch (Exception e){
-            e.printStackTrace();
             return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),e.getMessage(),null);
         }
     }
@@ -78,10 +76,8 @@ public class UserController {
             Map<String,String> result = this.userService.login(account,password);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(),"登录成功!",result);
         }catch (MsgException e){
-            e.printStackTrace();
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
         }catch (Exception e){
-            e.printStackTrace();
             return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),e.getMessage(),null);
         }
     }
@@ -104,10 +100,8 @@ public class UserController {
             result.put("user",user);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),result);
         }catch (MsgException e){
-            e.printStackTrace();
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
         }catch (Exception e){
-            e.printStackTrace();
             return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),e.getMessage(),null);
         }
     }

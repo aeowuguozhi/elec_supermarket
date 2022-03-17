@@ -57,7 +57,7 @@ public class AdminWebConfig implements WebMvcConfigurer {
 //                .allowedOrigins("*")             //允许跨域的域名，可以用*表示允许任何域名使用
                 .allowedMethods("*")             //允许任何方法（post、get等）
                 .allowedHeaders("*")             //允许任何请求头
-                .allowCredentials(true)          //带上cookie信息     s
+                .allowCredentials(true)          //带上cookie信息
                 .exposedHeaders(HttpHeaders.SET_COOKIE).maxAge(3600L);
     }
 }
