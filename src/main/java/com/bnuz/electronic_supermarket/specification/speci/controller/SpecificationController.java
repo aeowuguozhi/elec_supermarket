@@ -12,6 +12,8 @@
 
 package com.bnuz.electronic_supermarket.specification.speci.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
@@ -24,15 +26,22 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import net.bytebuddy.matcher.FilterableList;
+import org.apache.ibatis.cache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.interceptor.CacheOperation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
 /**
- * 规格什么人都可以创建，但是规格模板必须商家进行创建。
+ * 规格权限说明：用户：查询
+ *            商家、管理员：查询、创建、更新、删除
+ *            所以登陆拦截器放行规格-查询。
+ * SpringMVC API Sa-Token
  */
 @Api(tags = "规格名称")
 @RestController
@@ -43,21 +52,37 @@ public class SpecificationController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SpecificationController.class);
 
+    /**
+     * 因为设置了主键，所以逐一检查
+     * @param list
+     * @return
+     */
+    @SaCheckLogin
+    @SaCheckPermission("specification-add")
     @ApiOperation("批量创建规格")
     @ApiResponse(description = "传入规格数组，返回规格数组")
     @PostMapping("/create")
     public SysResult create(@RequestBody ArrayList<String> list) {
         try {
-            List<Specification>entity = new ArrayList<>();
+            List<String> failure = new ArrayList<>();
+            List<Specification> success = new ArrayList<>();
             int length = list.size();
             for (int i = 0; i < length; i++) {
-                Specification spe = new Specification(UUID.randomUUID().toString(),list.get(i));
-                entity.add(spe);
+                QueryWrapper<Specification>queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("name",list.get(i));
+                Specification one = speService.getOne(queryWrapper);
+                //数据库中有这个规格，不可以添加进去
+                if(one != null){
+                    failure.add(list.get(i));
+                    continue;
+                }
+                Specification specification = new Specification(UUID.randomUUID().toString(),list.get(i));
+                success.add(specification);
             }
-            boolean save = speService.saveBatch(entity);
-            if (!save) throw new MsgException("创建失败");
+            speService.saveBatch(success);
             Map<String, Object> map = new HashMap<>();
-            map.put("list", entity);
+            map.put("success", success);
+            map.put("failure",failure);
             return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.SUCCESS.getName(), map);
         } catch (MsgException e) {
             LOGGER.info(e.getMessage());
@@ -68,6 +93,8 @@ public class SpecificationController {
         }
     }
 
+    @SaCheckLogin
+    @SaCheckPermission("specification-delete")
     @ApiOperation("删除规格")
     @ApiImplicitParam(paramType = "query",name = "specificationId",value = "规格ID")
     @ApiResponse(description = "返回规格ID")
@@ -88,6 +115,7 @@ public class SpecificationController {
         }
     }
 
+    @SaCheckPermission("specification-query")
     @ApiOperation("通过规格名进行查询")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",name = "currPage",value = "当前页",defaultValue = "1"),
@@ -116,6 +144,7 @@ public class SpecificationController {
         }
     }
 
+    @SaCheckPermission("specification-query")
     @ApiOperation("查询所有规格名")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",name = "currPage",value = "当前页",defaultValue = "1"),

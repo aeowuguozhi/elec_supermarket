@@ -11,10 +11,14 @@
 
 package com.bnuz.electronic_supermarket.user.service.implement;
 
+import cn.dev33.satoken.annotation.SaCheckRole;
+import cn.dev33.satoken.stp.StpUtil;
+import com.auth0.jwt.interfaces.Payload;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bnuz.electronic_supermarket.common.enums.UserTypeEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
+import com.bnuz.electronic_supermarket.common.javaBean.Administrator;
 import com.bnuz.electronic_supermarket.common.javaBean.User;
 import com.bnuz.electronic_supermarket.common.utils.*;
 import com.bnuz.electronic_supermarket.user.dao.UserDao;
@@ -85,10 +89,6 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
                 throw new MsgException("密码不能为空");
             }
             checkAccount(userDto.getAccount());
-            //密码一致性校验
-//            if (!user.getPassword().equals(password2)) {
-//                throw new PasswordErrorException("两次密码输入不一致");
-//            }
             User user = new User();
             userDto2user(userDto,user);
             user.setId(UUID.randomUUID().toString());   //UUID
@@ -137,20 +137,22 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
             wrapper.eq("account",account).eq("password",MD5Utils.md5(password));
             User userDB = userdao.selectOne(wrapper);
 //            User userDB = userdao.selectUsersByAccountPassword(account,MD5Utils.md5(password));
-            if(userDB != null){
-                //添加负载 Payload 不要放用户敏感信息
-                Map<String,String> Payload = new HashMap<>();
-                Payload.put("id",userDB.getId());
-                Payload.put("account",userDB.getAccount());
-                Payload.put("type", UserTypeEnum.USER.getName());
-                String token = JwtUtil.createJwtToken(Payload, 120);//设置负载，设置token过期时间 120minutes
-                redisTemplate.opsForValue().set(User.class.getSimpleName() + "_"+ userDB.getId(), GsonUtil.getGson().toJson(userDB));
-                Map<String,String>map = new HashMap<>();
-                map.put("token",token);
-                map.put("userId",userDB.getId());
-                return map;
+            if(userDB == null){
+                throw new MsgException("登陆失败,用户名或密码错误");
             }
-            throw new MsgException("登陆失败,用户名或密码错误");
+            // JWT ：添加负载 Payload 不要放用户敏感信息
+//            Map<String,String> Payload = new HashMap<>();
+//            Payload.put("id",userDB.getId());
+//            Payload.put("account",userDB.getAccount());
+//            Payload.put("type", UserTypeEnum.USER.getName());
+//            String token = JwtUtil.createJwtToken(Payload, 120);//设置负载，设置token过期时间 120minutes
+            StpUtil.login(User.myPrefix + "_" + userDB.getId());
+            StpUtil.getTokenInfo().setLoginType(UserTypeEnum.USER.getName());
+            redisTemplate.opsForValue().set(User.myPrefix + "_"+ userDB.getId(), GsonUtil.getGson().toJson(userDB));
+            Map<String,String>map = new HashMap<>();
+            map.put("token", StpUtil.getTokenValue());
+            map.put("userId",userDB.getId());
+            return map;
         }catch (MsgException e){
             LOGGER.info(e.getMessage());
             throw e;
@@ -173,9 +175,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     public User getInfo(String userId, HttpServletRequest request) {
         Boolean exists = null;
         try {
-            //token里面的userId跟请求的userId不一致。鉴权：自己token的用户只能查看自己的信息.
-            if(JudgeUserIdUtil.Judge(request,userId) == false){
-                throw new MsgException("非法访问,请验证token或者用户ID");
+            //token里面的userId跟请求的userId不一致。鉴权：自己token的用户只能查看自己的信息。    sa-token也要判断一下。
+            //sa-token  鉴权  loginId由prefix + "_" + UUID构成
+            String[] loginId = StpUtil.getLoginIdAsString().split("_");
+            if(!loginId[1].equals(userId)){
+                //比如输入token正确，输入userId不正确，但是我可以在不调用sql查询的情况下，检查userId的正确性。
+                throw new MsgException("用户ID错误");
             }
             //先从redis里面找，参考supermarket项目。
             //登陆拦截器已经做了验证了。
@@ -197,11 +202,11 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
                 if(user == null){
                     throw new MsgException("查无此人");
                 }
-                this.redisTemplate.opsForValue().set(User.class.getSimpleName() + "_" + user.getId(),GsonUtil.getGson().toJson(user));
+                this.redisTemplate.opsForValue().set(User.myPrefix + "_" + user.getId(),GsonUtil.getGson().toJson(user));
                 return user;
             }else{
                 //从缓存中取出用户信息。
-                String jsonData = this.redisTemplate.opsForValue().get(User.class.getSimpleName() + "_" + userId);
+                String jsonData = this.redisTemplate.opsForValue().get(User.myPrefix + "_" + userId);
                 user = GsonUtil.getGson().fromJson(jsonData,User.class);
                 return user;
             }
@@ -213,15 +218,4 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
             throw e;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 }

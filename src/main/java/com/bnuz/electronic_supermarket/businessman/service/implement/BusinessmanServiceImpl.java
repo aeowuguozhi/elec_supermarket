@@ -12,12 +12,14 @@
 
 package com.bnuz.electronic_supermarket.businessman.service.implement;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bnuz.electronic_supermarket.businessman.dao.BusinessmanDao;
 import com.bnuz.electronic_supermarket.businessman.dto.BusinessmanDto;
 import com.bnuz.electronic_supermarket.businessman.service.BusinessmanService;
+import com.bnuz.electronic_supermarket.common.enums.UserTypeEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
 import com.bnuz.electronic_supermarket.common.javaBean.Businessman;
 import com.bnuz.electronic_supermarket.common.utils.*;
@@ -102,11 +104,13 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
             }
             //数据库查询成功，放到redis里面
             this.redisTemplate.opsForValue().set(Businessman.class.getSimpleName()+"_"+businessman.getId(), GsonUtil.getGson().toJson(businessman));
-            Map<String, String> payload = new HashMap<>();
-            payload.put("businessmanId", businessman.getId());
-            String token = JwtUtil.createJwtToken(payload, 120);
+//            Map<String, String> payload = new HashMap<>();
+//            payload.put("businessmanId", businessman.getId());
+//            String token = JwtUtil.createJwtToken(payload, 120);
+            StpUtil.login(Businessman.myPrefix + "_" + businessman.getId());
+            StpUtil.getTokenInfo().setLoginType(UserTypeEnum.BUSINESSMAN.getName());
             Map<String,Object>result = new HashMap<>();
-            result.put("token",token);
+            result.put("token",StpUtil.getTokenValue());
             result.put("businessmanId",businessman.getId());
             return result;
         }catch (MsgException e){
@@ -126,10 +130,9 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
     @Override
     public Map<String,Object> getByIds(List<String> ids, HttpServletRequest request) {
         try{
-            //从token里取出自己商家ID
+            //登录拦截器已经验证token了。 从token里取出自己商家ID
             String token = request.getHeader("token");
-            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
-            String myId = decodedJWT.getClaim("businessmanId").asString();
+            String[] myId = StpUtil.getLoginId().toString().split("_");
             List<String>notFoundIds = new ArrayList<>();
             int length = ids.size();
             String key,json_data,id;
@@ -140,7 +143,7 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
             for(int i = 0;i < length;i++){
                 id = ids.get(i);
                 //没有权限查询别人的ID,其实这里应该用selectById()就好了
-                if(!myId.equals(id)){
+                if(!myId[1].equals(id)){
                     notFoundIds.add(id);
                     continue;
                 }

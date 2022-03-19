@@ -24,6 +24,22 @@ import java.io.Serializable;
 @AllArgsConstructor
 @TableName("user")           //注解就是user表，mybatis-plus的默认规则是：JavaBean的类名跟数据库表名一致，不一致就用这个写表名。
 public class User implements Serializable {
+    public static final String Role = "用户";
+
+    public static final String[] myPermission = {
+            "user-*",                                                              //修改个人信息
+            "cart-add","cart-update","cart-delete","cart-query",                  //管理自己的购物车
+            "orderr-*",                                                             //管理自己的订单
+            "store-query",                                                         //查看店铺
+            "product-query",                                                       //查看商品，分类，品牌
+            "category-query","brand-query",                                         //查看配送包裹
+            "package-query","comment-*","reply-*",                                  //商品评论，回复某条商品评论
+            "specification-query","specifictemplate-query"                         //查看规格和查看规格模板
+
+    };
+
+    public static final String myPrefix = User.class.getSimpleName();
+
     private String id;
     @TableField("wechatId")
     private String wechatId;

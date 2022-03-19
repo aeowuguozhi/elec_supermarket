@@ -32,6 +32,22 @@ import java.io.Serializable;
 @TableName("businessman")
 @ApiModel("商家模型")
 public class Businessman implements Serializable {
+    public static final String Role = "商家";
+
+    public static final String[] myPermission = {
+            "businessman-*",                                                              //修改个人信息
+            "orderr-query",                                                        //查看用户下的的订单
+            "store-*",                                                             //查看店铺
+            "product-*",                                                           //查看自己商店的商品，分类，品牌
+            "category-add","category-query","brand-*",                              //查看配送包裹
+            "package-query","reply-*",                                  //商品评论只有购买过后的用户才可以评论，回复某条商品评论
+            "specifictemplate-*",                                       //规格模板里面的数据含有规格和规格值，所以商家和管理员可以看见
+            "specification-*",                                           //规格只有商家和管理员可以操作
+            "brand-*"
+    };
+
+    public static final String myPrefix = Businessman.class.getSimpleName();
+
     private String id;
     @ApiModelProperty("账号")
     private String account;

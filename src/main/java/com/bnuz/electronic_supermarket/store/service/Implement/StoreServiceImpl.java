@@ -12,6 +12,7 @@
 
 package com.bnuz.electronic_supermarket.store.service.Implement;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -67,15 +68,17 @@ public class StoreServiceImpl extends ServiceImpl<StoreDao, Store> implements St
     @Override
     public String save(Store entity, HttpServletRequest request) {
         try{
+            //Sa-token 注解已经检验是否登录，是否有权限，登录拦截器已经验证token
             //验证信息
             String name = entity.getName();
             if(StringUtils.containsWhitespace(name) || !StringUtils.hasText(name)){
                 throw new MsgException("店铺名不能含有空格");
             }
             String token = request.getHeader("token");
-            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
-            String businessmanId = decodedJWT.getClaim("businessmanId").asString();
-            entity.setBusinessmanId(businessmanId);
+//            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
+//            String businessmanId = decodedJWT.getClaim("businessmanId").asString();
+            String[] businessmanId = StpUtil.getLoginId().toString().split("_");
+            entity.setBusinessmanId(businessmanId[1]);
             entity.setState(StateEnum.USING.getIndex());
             entity.setCreateTime(LocalDateTimeUtils.getLocalDateTime());
             entity.setUpdateTime(null);
@@ -104,8 +107,10 @@ public class StoreServiceImpl extends ServiceImpl<StoreDao, Store> implements St
         try{
             //从token中取出商家ID
             String token = request.getHeader("token");
-            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
-            String businessmanId = decodedJWT.getClaim("businessmanId").asString();
+            String[] s = StpUtil.getLoginId().toString().split("_");
+            String businessmanId = s[1];
+//            DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
+//            String businessmanId = decodedJWT.getClaim("businessmanId").asString();
             //鉴权，只有自己创建的商店才能delete。 select * from store where `id` = sid AND `businessmanId` = businessmanId
             String key = Store.class.getSimpleName()+"_"+sid;
             Store store = null;

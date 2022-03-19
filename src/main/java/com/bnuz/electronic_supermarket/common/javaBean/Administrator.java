@@ -20,6 +20,13 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class Administrator {
+    //Sa-token
+    public static final String Role = "管理员";
+
+    public static final String myPermission = "*-*";
+
+    public static final String myPrefix = Administrator.class.getSimpleName();
+
     private String id;
     private Integer deptId;
     private String account;
@@ -35,5 +42,4 @@ public class Administrator {
     private String createTime;
     private String updateTime;
     private String note;
-
 }

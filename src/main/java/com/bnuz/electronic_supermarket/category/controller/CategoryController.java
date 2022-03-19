@@ -12,6 +12,8 @@
 
 package com.bnuz.electronic_supermarket.category.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -48,17 +50,18 @@ public class CategoryController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
 
+    @SaCheckLogin
+    @SaCheckPermission("category-add")
     @ApiOperation("批量创建分类")
+    @ApiImplicitParam(paramType = "header",name = "token",value = "商家token")
     @ApiResponse(description = "传入分类数组，返回分类数组")
     @PostMapping("/create")
-    public SysResult create(@RequestBody ArrayList<String> list) {
+    public SysResult create(@RequestBody ArrayList<String> categorys) {
         try {
             List<Category> entity = new ArrayList<>();
-            int length = list.size();
-            List<String> products = new ArrayList<>();
-            String json = GsonUtil.getGson().toJson(products);
+            int length = categorys.size();
             for (int i = 0; i < length; i++) {
-                Category category = new Category(UUID.randomUUID().toString(), list.get(i), json);
+                Category category = new Category(UUID.randomUUID().toString(), categorys.get(i));
                 entity.add(category);
             }
             boolean save = service.saveBatch(entity);
@@ -75,8 +78,13 @@ public class CategoryController {
         }
     }
 
+    @SaCheckLogin
+    @SaCheckPermission("category-delete")
     @ApiOperation("删除分类")
-    @ApiImplicitParam(paramType = "query", name = "categoryId", value = "分类ID")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "categoryId", value = "分类ID"),
+            @ApiImplicitParam(paramType = "header",name = "token",value = "商家token")
+    })
     @ApiResponse(description = "返回分类ID")
     @DeleteMapping("/delete")
     public SysResult delete(@RequestParam("categoryId") String id) {
@@ -148,7 +156,7 @@ public class CategoryController {
     }
 
     /**
-     * 创建商品后，商品ID需要add到分类名为name的那条记录的product_ids     List<int>
+     * 创建商品后，商品ID需要add到分类名为name的那条记录的product_ids     List<int>   ERROR do not used
      */
     @ApiOperation("创建的商品的ID回填到分类的productIds字段")
     @PostMapping("/mergeProductIds")
@@ -162,14 +170,6 @@ public class CategoryController {
             queryWrapper.eq("name",name);
             //从数据库中取出这个分类
             Category category = service.getOne(queryWrapper);
-            //从json解析还原旧数组
-            ArrayList<String> productIds = GsonUtil.getGson().fromJson(category.getProduct_ids(), ArrayList.class);
-            //add 刚刚创建的商品的ID回去这个分类里
-            for (int i = 0; i < length; i++) {
-                productIds.add(ids.get(i));
-            }
-            //新商品ids数组形成了，json数据set回去category
-            category.setProduct_ids(GsonUtil.getGson().toJson(productIds));
             //update 回去数据库
             UpdateWrapper<Category>updateWrapper = new UpdateWrapper<>();
             updateWrapper.eq("name",category.getName());

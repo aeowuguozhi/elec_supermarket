@@ -9,5 +9,5 @@ import java.util.Map;
 
 public interface CategoryService extends IService<Category> {
 
-    public SysResult saveBackProductIds(String name, List<String> ids);
+    public SysResult saveCatePro(List<String>categorys,String productId);
 }

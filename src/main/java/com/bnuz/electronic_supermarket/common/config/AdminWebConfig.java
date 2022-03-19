@@ -34,17 +34,25 @@ public class AdminWebConfig implements WebMvcConfigurer {
      * 然后拦截所有请求，除去登陆和注册这些请求（没有token），其他请求都要token。
      * 所以所有角色的登陆、注册都统一在/login,/register的请求路径。eg：/login/user   /login/businessman
      * HttpServletRequest、HttpServletResponse做操作日志。  ip:port    do something     dateTime
+     *
+     * 不进行登陆就可以访问的API
      * @param registry
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")             //拦截所有请求，包括静态资源
-                .excludePathPatterns("/","/login/*","/register/*","/favicon.ico","/**/error","/res/*",
-                        "/swagger-resources/**","/swagger-ui.html/**","/swagger-ui/*","/v3/api-docs"
-                        ,"/store/queryByIds","/store/queryByName","/brand/*","/specification/*"
-                        ,"/category/*");   //放行的请求
-    }//                          index.html 登录     注册      error     静态资源     swagger-ui  店铺、品牌、规格、分类所有人查看
+                .excludePathPatterns("/","/login/*","/register/*","/favicon.ico","/**/error","/res/*") //用户、商家登陆注册、res静态资源
+                .excludePathPatterns("/specification/queryByName","/specification/queryAll")           //规格查询
+                .excludePathPatterns("/category/queryByName","/category/queryAll")                     //分类查询
+                .excludePathPatterns("/swagger-resources/**","/swagger-ui.html/**","/swagger-ui/*","/v3/api-docs")
+                .excludePathPatterns("/store/queryByIds","/store/queryByName","/brand/query")             //店铺、品牌查询
+                .excludePathPatterns("/template/queryByName","/template/queryById");                      //规格模板查询
+
+        //放行的请求
+    //index.html 登录     注册      error     静态资源     swagger-ui  店铺、品牌、规格、分类所有人查看
+    }
+
 
     /**
      * 配置跨域   https://blog.csdn.net/weixin_42036952/article/details/88564647

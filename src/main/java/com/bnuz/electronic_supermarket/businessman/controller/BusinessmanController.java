@@ -12,11 +12,15 @@
 
 package com.bnuz.electronic_supermarket.businessman.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.stp.StpUtil;
 import com.bnuz.electronic_supermarket.businessman.dto.BusinessmanDto;
 import com.bnuz.electronic_supermarket.businessman.service.BusinessmanService;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
+import com.bnuz.electronic_supermarket.common.javaBean.Administrator;
+import com.bnuz.electronic_supermarket.common.javaBean.Businessman;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -99,8 +103,11 @@ public class BusinessmanController {
             @ApiImplicitParam(name = "ids",value = "商家id数组")
     })
     @ApiResponse(description = "请求body填写商家ids数组。返回notFoundIds数组(找不到数据的商家ID),businessmen数组")
+    @SaCheckLogin
     public SysResult getByIds(@RequestBody List<String> ids, HttpServletRequest request){
         try{
+//            StpUtil.checkRoleOr(Businessman.Role, Administrator.Role);
+            StpUtil.checkPermission("businessman-query");
             Map<String, Object> data = this.businessmanService.getByIds(ids,request);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),data);
         }catch (MsgException e){

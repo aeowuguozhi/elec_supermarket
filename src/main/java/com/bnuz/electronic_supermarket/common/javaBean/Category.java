@@ -34,6 +34,4 @@ public class Category {
     private String id;
     @ApiModelProperty("分类名字,eg:水果，衣服，电器")
     private String name;
-    @ApiModelProperty("商品ids数组")
-    private String product_ids;
 }

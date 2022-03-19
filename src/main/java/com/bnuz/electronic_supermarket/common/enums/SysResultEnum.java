@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum SysResultEnum {
     SUCCESS("请求成功",200),      //一般用于GET与POST请求
     SYS_ERROR("服务器错误",500),
-    Created("已创建",201),
+    Created("创建成功",201),
     Client_ERROR("客户端错误",400);
 
     private String name;

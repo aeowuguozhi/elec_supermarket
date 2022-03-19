@@ -15,7 +15,9 @@ package com.bnuz.electronic_supermarket;
 import com.bnuz.electronic_supermarket.common.utils.GsonUtil;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Gosn {
     @Test
@@ -34,5 +36,14 @@ public class Gosn {
         hashMap1.forEach((k,v)->{
             System.out.println(k + ":" + v);
         });
+    }
+
+    @Test
+    public void testArray(){
+        String[] a = {"a","b","c"};
+        List<String> strings = Arrays.asList(a);
+        String k = strings.toString();
+        System.out.println(k);
+        List<String> strings1 = Arrays.asList(k);
     }
 }

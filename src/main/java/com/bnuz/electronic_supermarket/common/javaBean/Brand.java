@@ -38,8 +38,6 @@ public class Brand {
     private String headImage;
     @ApiModelProperty("品牌名称")
     private String name;
-    @ApiModelProperty("商品id数组(不要填)")
-    private String product_ids;
     @ApiModelProperty("详细描述/简介")
     private String description;
     @ApiModelProperty("创建时间(不要填)")

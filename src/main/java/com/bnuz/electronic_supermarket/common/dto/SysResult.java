@@ -3,9 +3,12 @@ package com.bnuz.electronic_supermarket.common.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Setter
 @Getter
-public class SysResult {
+public class SysResult implements Serializable {
+    private static final long serialVersionUID = 1L;
     //表示状态码的数字
     private Integer status;
     //携带详细信息的字符串

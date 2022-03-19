@@ -12,15 +12,18 @@
 
 package com.bnuz.electronic_supermarket.specification.speciTemplate.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
+import com.bnuz.electronic_supermarket.common.javaBean.Specification;
 import com.bnuz.electronic_supermarket.common.javaBean.Specifictemplate;
 import com.bnuz.electronic_supermarket.common.utils.GsonUtil;
 import com.bnuz.electronic_supermarket.specification.speci.dao.SpecificationMapper;
+import com.bnuz.electronic_supermarket.specification.speci.service.SpecificationService;
 import com.bnuz.electronic_supermarket.specification.speciTemplate.dao.SpeTemplateMapper;
 import com.bnuz.electronic_supermarket.specification.speciTemplate.service.SpeTemplateService;
 import org.slf4j.Logger;
@@ -32,6 +35,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -40,6 +44,9 @@ public class SpeTemplateServiceImpl extends ServiceImpl<SpeTemplateMapper, Speci
 
     @Autowired
     private SpeTemplateMapper templateDao;
+
+    @Autowired
+    private SpecificationMapper specificationDao;
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SpeTemplateServiceImpl.class);
 
@@ -55,6 +62,15 @@ public class SpeTemplateServiceImpl extends ServiceImpl<SpeTemplateMapper, Speci
     @Override
     public String create(Map<String, String> map) {
         try {
+            //检查key也就是规格有没有问题,是不是存在于数据库中的
+            Set<String> strings = map.keySet();
+            QueryWrapper<Specification> wrapper = new QueryWrapper<>();
+            wrapper.in("name", strings);
+            //select count(*) from specification where name in keySet;
+            Long count = specificationDao.selectCount(wrapper);
+            if(count != map.size()){
+                throw new MsgException("未找到规格，请先创建规格后在使用");
+            }
             String json = GsonUtil.getGson().toJson(map);
             Specifictemplate template = new Specifictemplate();
             template.setId(UUID.randomUUID().toString());
@@ -106,7 +122,7 @@ public class SpeTemplateServiceImpl extends ServiceImpl<SpeTemplateMapper, Speci
         try {
             //get data from redis if existed
             String key = Specifictemplate.class.getSimpleName() + "_" + tid;
-            if(redisTemplate.hasKey(key)){
+            if (redisTemplate.hasKey(key)) {
                 String json = redisTemplate.opsForValue().get(key);
                 Specifictemplate template = GsonUtil.getGson().fromJson(json, Specifictemplate.class);
                 return template;
@@ -114,7 +130,7 @@ public class SpeTemplateServiceImpl extends ServiceImpl<SpeTemplateMapper, Speci
             //get data from database
             Specifictemplate specifictemplate = templateDao.selectById(tid);
             //set the data which is from database into redis,过期时间60minutes
-            redisTemplate.opsForValue().set(key,GsonUtil.getGson().toJson(specifictemplate),60, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(key, GsonUtil.getGson().toJson(specifictemplate), 60, TimeUnit.MINUTES);
             return specifictemplate;
         } catch (MsgException e) {
             LOGGER.info(e.getMessage());
@@ -127,6 +143,7 @@ public class SpeTemplateServiceImpl extends ServiceImpl<SpeTemplateMapper, Speci
 
     /**
      * 将创建好的商品的ID和商品的名字回填到规格模板表中
+     *
      * @param productId
      * @param productName
      * @param templateId
@@ -134,24 +151,24 @@ public class SpeTemplateServiceImpl extends ServiceImpl<SpeTemplateMapper, Speci
      */
     @Override
     public SysResult saveBackProductId(String productId, String productName, String templateId) {
-        try{
+        try {
             //TODO unTest
             //从数据库中取出数据
-            QueryWrapper<Specifictemplate>queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("id",templateId);
+            QueryWrapper<Specifictemplate> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("id", templateId);
             Specifictemplate template = templateDao.selectOne(queryWrapper);
             //回填商品数据
             template.setProductName(productName);
             template.setProduct_id(productId);
             //更新数据库
-            UpdateWrapper<Specifictemplate>updateWrapper = new UpdateWrapper<>();
-            updateWrapper.eq("id",template.getId());
+            UpdateWrapper<Specifictemplate> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.eq("id", template.getId());
             int update = templateDao.update(template, updateWrapper);
-            if(update <= 0) throw new MsgException("回填商品数据到规格模板失败");
-            return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),null);
-        }catch (MsgException e){
+            if (update <= 0) throw new MsgException("回填商品数据到规格模板失败");
+            return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), null);
+        } catch (MsgException e) {
             LOGGER.info(e.getMessage());
-            return new SysResult(SysResultEnum.SYS_ERROR.getIndex(),SysResultEnum.SYS_ERROR.getName(),null);
+            return new SysResult(SysResultEnum.SYS_ERROR.getIndex(), SysResultEnum.SYS_ERROR.getName(), null);
         }
     }
 }

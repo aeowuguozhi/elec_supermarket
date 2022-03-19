@@ -12,10 +12,14 @@
 
 package com.bnuz.electronic_supermarket.specification.speciTemplate.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
+import com.bnuz.electronic_supermarket.common.javaBean.Administrator;
+import com.bnuz.electronic_supermarket.common.javaBean.Businessman;
 import com.bnuz.electronic_supermarket.common.javaBean.Specifictemplate;
+import com.bnuz.electronic_supermarket.common.javaBean.User;
 import com.bnuz.electronic_supermarket.common.utils.GsonUtil;
 import com.bnuz.electronic_supermarket.specification.speciTemplate.service.SpeTemplateService;
 import io.swagger.annotations.Api;
@@ -31,6 +35,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Sa-Token使用角色权限
+ * 规格模板权限说明：规格模板存放信息是HashMap<规格名，规格值>。规格模板依赖于商品而存在。因此只要需要CURD商品，都需要查询到规格模板。
+ */
+
 @Api(tags = "规格模板API")
 @RestController
 @RequestMapping("/template")
@@ -44,10 +53,11 @@ public class SpeTemplateController {
           @ApiImplicitParam(paramType = "header",name = "token",value = "商家token",required = true),
           @ApiImplicitParam(paramType = "query",name = "map",value = "HashMap<规格,规格值>",required = true)
     })
-    @ApiResponse(description = "")
+    @ApiResponse(description = "只有商家和管理员才可以创建规格模板")
     @PostMapping("/create")
     public SysResult create(@RequestBody Map<String,String> map){
         try{
+            StpUtil.checkRoleOr(Businessman.Role, Administrator.Role);
             String tid = service.create(map);
             Map<String,Object>result = new HashMap<>();
             result.put("templateId",tid);
@@ -68,6 +78,7 @@ public class SpeTemplateController {
     @DeleteMapping("/delete")
     public SysResult delete(@RequestParam("templateId") String templateId){
         try{
+            StpUtil.checkRoleOr(Businessman.Role, Administrator.Role);
             String tid = service.delete(templateId);
             Map<String,Object>result = new HashMap<>();
             result.put("templateId",tid);
@@ -81,7 +92,6 @@ public class SpeTemplateController {
 
     @ApiOperation("通过ID查询规格模板")
     @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "header",name = "token",value = "商家token",required = true),
             @ApiImplicitParam(paramType = "query",name = "templateId",value = "规格模板ID",required = true)
     })
     @ApiResponse(description = "返回规格模板")

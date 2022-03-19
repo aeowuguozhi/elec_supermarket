@@ -13,9 +13,13 @@
 
 package com.bnuz.electronic_supermarket.user.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckRole;
+import cn.dev33.satoken.stp.StpUtil;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
+import com.bnuz.electronic_supermarket.common.javaBean.Administrator;
 import com.bnuz.electronic_supermarket.common.javaBean.User;
 import com.bnuz.electronic_supermarket.user.dto.UserRegisterDto;
 import com.bnuz.electronic_supermarket.user.service.UserService;
@@ -59,7 +63,7 @@ public class UserController {
     }
 
     /**
-     * 用户登陆 返回JWT生成的token
+     * 用户登陆 返回sa-token生成的token
      * @param account
      * @param password
      * @return
@@ -93,8 +97,11 @@ public class UserController {
             @ApiImplicitParam(paramType = "header",name = "token",value = "用户token",required = true)
     })
     @GetMapping("/user/info/{userId}")
+    @SaCheckLogin
     public SysResult getUserInfo(@PathVariable("userId") String userId,HttpServletRequest request){
         try{
+//            StpUtil.checkRoleOr(User.Role, Administrator.Role);
+            StpUtil.checkPermission("user-query");
             User user = this.userService.getInfo(userId,request);
             Map<String,Object> result = new HashMap<>();
             result.put("user",user);

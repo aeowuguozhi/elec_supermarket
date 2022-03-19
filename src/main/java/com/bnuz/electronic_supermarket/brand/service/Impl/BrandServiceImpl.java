@@ -44,7 +44,6 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
     @Override
     public boolean save(Brand entity) {
         try{
-            entity.setProduct_ids(null);
             entity.setCreateTime(LocalDateTimeUtils.getLocalDateTime());
             entity.setId(UUID.randomUUID().toString());
             brandDao.insert(entity);

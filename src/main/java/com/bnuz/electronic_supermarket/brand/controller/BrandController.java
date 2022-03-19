@@ -12,6 +12,8 @@
 
 package com.bnuz.electronic_supermarket.brand.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bnuz.electronic_supermarket.brand.service.BrandService;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
@@ -47,7 +49,10 @@ public class BrandController {
      * @param brand
      * @return
      */
+    @SaCheckLogin
+    @SaCheckPermission("category-add")
     @ApiOperation("创建品牌")
+    @ApiImplicitParam(paramType = "header",name = "token",value = "商家token",required = true)
     @PostMapping("/create")
     public SysResult create(@RequestBody Brand brand){
         try{
@@ -67,8 +72,13 @@ public class BrandController {
      * @param brandId
      * @return
      */
+    @SaCheckLogin
+    @SaCheckPermission("category-delete")
     @ApiOperation("通过品牌ID删除品牌")
-    @ApiImplicitParam(paramType = "query",name = "id",value = "品牌ID")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name = "id",value = "品牌ID"),
+            @ApiImplicitParam(paramType = "header",name = "token",value = "商家token",required = true)
+    })
     @DeleteMapping("/delete")
     public SysResult delete(@RequestParam("id") String brandId){
         try{
@@ -84,7 +94,7 @@ public class BrandController {
     }
 
     /**
-     * 品牌名字查询品牌
+     * 品牌名字查询品牌   非登陆态也可查询
      * @param name
      * @return
      */
