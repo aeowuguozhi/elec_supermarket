@@ -148,6 +148,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 //            String token = JwtUtil.createJwtToken(Payload, 120);//设置负载，设置token过期时间 120minutes
             StpUtil.login(User.myPrefix + "_" + userDB.getId());
             StpUtil.getTokenInfo().setLoginType(UserTypeEnum.USER.getName());
+            StpUtil.getSession().set(UserTypeEnum.USER.getName(),userDB);
             redisTemplate.opsForValue().set(User.myPrefix + "_"+ userDB.getId(), GsonUtil.getGson().toJson(userDB));
             Map<String,String>map = new HashMap<>();
             map.put("token", StpUtil.getTokenValue());
@@ -164,7 +165,6 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
             throw e;
         }
     }
-
 
     /**
      * 获取用户信息

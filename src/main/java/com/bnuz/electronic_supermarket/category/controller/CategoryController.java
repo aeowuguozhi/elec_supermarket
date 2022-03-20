@@ -68,7 +68,7 @@ public class CategoryController {
             if (!save) throw new MsgException("创建失败");
             Map<String, Object> map = new HashMap<>();
             map.put("list", entity);
-            return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.SUCCESS.getName(), map);
+            return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.Created.getName(), map);
         } catch (MsgException e) {
             LOGGER.info(e.getMessage());
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(), e.getMessage(), null);

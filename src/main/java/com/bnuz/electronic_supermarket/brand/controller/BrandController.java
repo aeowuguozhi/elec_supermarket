@@ -59,7 +59,7 @@ public class BrandController {
             brandService.save(brand);
             Map<String,Object> result = new HashMap<>();
             result.put("brandId",brand.getId());
-            return new SysResult(SysResultEnum.Created.getIndex(),"OK",result);
+            return new SysResult(SysResultEnum.Created.getIndex(),SysResultEnum.Created.getName(),result);
         }catch (MsgException e){
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
         }catch (Exception e){

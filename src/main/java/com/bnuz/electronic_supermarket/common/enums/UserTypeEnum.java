@@ -1,5 +1,9 @@
 package com.bnuz.electronic_supermarket.common.enums;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Getter
 public enum UserTypeEnum {
     ADMIN("管理员",1024),
     BUSINESSMAN("商家",0),

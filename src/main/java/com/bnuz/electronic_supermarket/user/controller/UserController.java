@@ -54,7 +54,7 @@ public class UserController {
             String uid = this.userService.registerUser(userDto);
             Map<String,Object> result = new HashMap<>();
             result.put("userId",uid);
-            return new SysResult(SysResultEnum.Created.getIndex(),"OK",result);
+            return new SysResult(SysResultEnum.Created.getIndex(),SysResultEnum.SUCCESS.getName(),result);
         }catch (MsgException e){
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(),e.getMessage(),null);
         }catch (Exception e){

@@ -76,7 +76,7 @@ public class StoreController {
             String id = storeService.save(store, request);
             Map<String, Object> map = new HashMap<>();
             map.put("storeId", id);
-            return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);
+            return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.Created.getName(), map);
         } catch (MsgException e) {
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(), e.getMessage(), null);
         } catch (Exception e) {

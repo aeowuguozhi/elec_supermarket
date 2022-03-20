@@ -60,6 +60,7 @@ public class SpecificationController {
     @SaCheckLogin
     @SaCheckPermission("specification-add")
     @ApiOperation("批量创建规格")
+    @ApiImplicitParam(paramType = "header",name = "token",value = "商家token",required = true)
     @ApiResponse(description = "传入规格数组，返回规格数组")
     @PostMapping("/create")
     public SysResult create(@RequestBody ArrayList<String> list) {
@@ -83,7 +84,7 @@ public class SpecificationController {
             Map<String, Object> map = new HashMap<>();
             map.put("success", success);
             map.put("failure",failure);
-            return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.SUCCESS.getName(), map);
+            return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.Created.getName(), map);
         } catch (MsgException e) {
             LOGGER.info(e.getMessage());
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(), e.getMessage(), null);
@@ -96,7 +97,10 @@ public class SpecificationController {
     @SaCheckLogin
     @SaCheckPermission("specification-delete")
     @ApiOperation("删除规格")
-    @ApiImplicitParam(paramType = "query",name = "specificationId",value = "规格ID")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name = "specificationId",value = "规格ID"),
+            @ApiImplicitParam(paramType = "header",name = "token",value = "商家token",required = true)
+    })
     @ApiResponse(description = "返回规格ID")
     @DeleteMapping("/delete")
     public SysResult delete(@RequestParam("specificationId") String id) {

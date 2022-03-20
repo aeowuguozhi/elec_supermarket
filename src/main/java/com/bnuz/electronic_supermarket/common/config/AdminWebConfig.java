@@ -46,6 +46,7 @@ public class AdminWebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/specification/queryByName","/specification/queryAll")           //规格查询
                 .excludePathPatterns("/category/queryByName","/category/queryAll")                     //分类查询
                 .excludePathPatterns("/swagger-resources/**","/swagger-ui.html/**","/swagger-ui/*","/v3/api-docs")
+                .excludePathPatterns("/product/queryAll","/product/queryByName","/product/queryByStoreId") //商品查询
                 .excludePathPatterns("/store/queryByIds","/store/queryByName","/brand/query")             //店铺、品牌查询
                 .excludePathPatterns("/template/queryByName","/template/queryById");                      //规格模板查询
 

@@ -231,7 +231,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             queryWrapper.like("name",productName).orderByDesc("createTime");
             Page<Product> page1 = productDao.selectPage(page, queryWrapper);
             Map<String,Object>map = new HashMap<>();
-            map.put("products",map);
+            map.put("products",page1);
             return map;
         }catch (MsgException e){
             LOGGER.info(e.getMessage());

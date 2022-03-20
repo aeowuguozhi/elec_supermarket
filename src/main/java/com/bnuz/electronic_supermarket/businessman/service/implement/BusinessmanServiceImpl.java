@@ -109,6 +109,7 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
 //            String token = JwtUtil.createJwtToken(payload, 120);
             StpUtil.login(Businessman.myPrefix + "_" + businessman.getId());
             StpUtil.getTokenInfo().setLoginType(UserTypeEnum.BUSINESSMAN.getName());
+            StpUtil.getSession().set(UserTypeEnum.BUSINESSMAN.getName(),businessman);
             Map<String,Object>result = new HashMap<>();
             result.put("token",StpUtil.getTokenValue());
             result.put("businessmanId",businessman.getId());
@@ -131,7 +132,6 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
     public Map<String,Object> getByIds(List<String> ids, HttpServletRequest request) {
         try{
             //登录拦截器已经验证token了。 从token里取出自己商家ID
-            String token = request.getHeader("token");
             String[] myId = StpUtil.getLoginId().toString().split("_");
             List<String>notFoundIds = new ArrayList<>();
             int length = ids.size();
@@ -142,8 +142,8 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
             //遍历ids
             for(int i = 0;i < length;i++){
                 id = ids.get(i);
-                //没有权限查询别人的ID,其实这里应该用selectById()就好了
-                if(!myId[1].equals(id)){
+                //没有权限查询别人的ID,其实这里应该用selectById()就好了.（管理员可以拿所有信息）
+                if(!myId[1].equals(id) && StpUtil.getTokenInfo().getLoginType().equals(UserTypeEnum.BUSINESSMAN.getName())){
                     notFoundIds.add(id);
                     continue;
                 }

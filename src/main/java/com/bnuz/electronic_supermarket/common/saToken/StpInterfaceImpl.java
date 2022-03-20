@@ -13,6 +13,7 @@
 package com.bnuz.electronic_supermarket.common.saToken;
 
 import cn.dev33.satoken.stp.StpInterface;
+import com.bnuz.electronic_supermarket.common.enums.UserTypeEnum;
 import com.bnuz.electronic_supermarket.common.javaBean.Administrator;
 import com.bnuz.electronic_supermarket.common.javaBean.Businessman;
 import com.bnuz.electronic_supermarket.common.javaBean.User;

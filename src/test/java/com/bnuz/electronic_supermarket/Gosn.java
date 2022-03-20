@@ -12,7 +12,9 @@
 
 package com.bnuz.electronic_supermarket;
 
+import cn.hutool.core.util.IdUtil;
 import com.bnuz.electronic_supermarket.common.utils.GsonUtil;
+import io.netty.util.NetUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -45,5 +47,10 @@ public class Gosn {
         String k = strings.toString();
         System.out.println(k);
         List<String> strings1 = Arrays.asList(k);
+    }
+
+    @Test
+    public void testWordkId(){
+
     }
 }
