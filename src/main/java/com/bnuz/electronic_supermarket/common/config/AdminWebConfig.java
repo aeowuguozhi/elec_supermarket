@@ -42,9 +42,9 @@ public class AdminWebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")             //拦截所有请求，包括静态资源
-                .excludePathPatterns("/","/login/*","/register/*","/favicon.ico","/**/error","/res/*") //用户、商家登陆注册、res静态资源
+                .excludePathPatterns("/","/login/*","/register/*","/favicon.ico","/**/error","/res/*","/druid/*") //用户、商家登陆注册、res静态资源
                 .excludePathPatterns("/specification/queryByName","/specification/queryAll")           //规格查询
-                .excludePathPatterns("/category/queryByName","/category/queryAll")                     //分类查询
+                .excludePathPatterns("/category/queryByName","/category/queryAll","/category/queryProductByCategoryName")        //分类查询
                 .excludePathPatterns("/swagger-resources/**","/swagger-ui.html/**","/swagger-ui/*","/v3/api-docs")
                 .excludePathPatterns("/product/queryAll","/product/queryByName","/product/queryByStoreId") //商品查询
                 .excludePathPatterns("/store/queryByIds","/store/queryByName","/brand/query")             //店铺、品牌查询

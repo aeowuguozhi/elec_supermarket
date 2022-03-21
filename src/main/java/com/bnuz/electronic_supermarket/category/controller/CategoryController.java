@@ -17,11 +17,14 @@ import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.bnuz.electronic_supermarket.category.dao.Category_productMapper;
+import com.bnuz.electronic_supermarket.category.service.CategoryProductService;
 import com.bnuz.electronic_supermarket.category.service.CategoryService;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
 import com.bnuz.electronic_supermarket.common.javaBean.Category;
+import com.bnuz.electronic_supermarket.common.javaBean.Category_product;
 import com.bnuz.electronic_supermarket.common.javaBean.Specification;
 import com.bnuz.electronic_supermarket.common.utils.GsonUtil;
 import com.bnuz.electronic_supermarket.specification.speci.controller.SpecificationController;
@@ -47,6 +50,9 @@ import java.util.*;
 public class CategoryController {
     @Autowired
     private CategoryService service;
+
+    @Autowired
+    private Category_productMapper cpMapper;
 
     private final static Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
 
@@ -103,7 +109,7 @@ public class CategoryController {
         }
     }
 
-    @ApiOperation("通过分类名进行查询")
+    @ApiOperation("通过分类名进行查询分类")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "currPage", value = "当前页", defaultValue = "1"),
             @ApiImplicitParam(paramType = "query", name = "size", value = "一页多少条记录", defaultValue = "10"),
@@ -186,4 +192,34 @@ public class CategoryController {
         }
 
     }
+
+
+    @ApiOperation("通过分类名查询商品")
+    @GetMapping("/queryProductByCategoryName")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "currPage", value = "当前页", defaultValue = "1"),
+            @ApiImplicitParam(paramType = "query", name = "size", value = "一页多少条记录", defaultValue = "10"),
+            @ApiImplicitParam(paramType = "query",name = "categoryName",value = "分类名",required = true)
+    })
+    public SysResult queryProductByCategoryName(@RequestParam(value = "categoryName") String name,
+                                                @RequestParam(value = "currPage", defaultValue = "1") Integer currPage,
+                                                @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        try {
+            //select * from category_product where categoryName = name;
+            QueryWrapper<Category_product>queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("categoryName",name);
+            Page<Category_product> category_productPage = cpMapper.selectPage(new Page<Category_product>(currPage, size), queryWrapper);
+            Map<String,Object>map = new HashMap<>();
+            map.put("category_products",category_productPage);
+            return new SysResult(SysResultEnum.SUCCESS.getIndex(),SysResultEnum.SUCCESS.getName(),map);
+        } catch (MsgException e) {
+            LOGGER.info(e.getMessage());
+            return new SysResult(SysResultEnum.Client_ERROR.getIndex(), e.getMessage(), null);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            return new SysResult(SysResultEnum.SYS_ERROR.getIndex(), e.getMessage(), null);
+        }
+    }
+
+
 }

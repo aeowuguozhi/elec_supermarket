@@ -61,6 +61,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+
+
     @SaCheckLogin
     @SaCheckPermission("product-add")
     @ApiOperation("商家创建商品")
@@ -159,6 +161,7 @@ public class ProductController {
         }
     }
 
+    @ApiOperation("商家修改商品信息")
     @SaCheckLogin
     @SaCheckPermission("product-update")
     @ApiImplicitParams({
@@ -208,6 +211,8 @@ public class ProductController {
 
         }
     }
+
+
 
     private void dto2bean(Product product, ProductDto productDto) {
         product.setBarCode(productDto.getBarCode());

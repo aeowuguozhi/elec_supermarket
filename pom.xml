@@ -22,7 +22,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
-        <!--引入redis-->
+        <!--引入redis  redis缓存-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -46,7 +46,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--引入web场景-->
+        <!--引入web场景  springMVC-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -63,7 +63,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <!--引入mysql-->
+        <!--引入mysql     mysql数据库驱动-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -120,7 +120,7 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.22</version>
         </dependency>
-        <!--引入mybatis-plus依赖  内含mybatis-starter和data-jdbc -->
+        <!--引入mybatis-plus依赖  内含mybatis-starter和data-jdbc    持久层框架 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -130,7 +130,7 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
-        <!--slf4j日志门面，面向日志门面的日志接口进行开发-->
+        <!--slf4j日志门面，面向日志门面的日志接口进行开发   日志-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -148,13 +148,13 @@
             <artifactId>disruptor</artifactId>
             <version>3.3.4</version>
         </dependency>
-        <!--导入swagger3.0的依赖-->
+        <!--导入swagger3.0 接口文档的依赖-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
-<!--        引入sa-token-->
+<!--        引入sa-token 用户验证-->
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-spring-boot-starter</artifactId>
