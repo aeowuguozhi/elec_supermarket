@@ -92,27 +92,22 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public boolean save(Product product,List<String> categorys) {
         try{
             //验证品牌if existed(一个SKU stock keeping unit也可没有品牌)
-            if(StringUtils.hasText(product.getBrand_id())){
-                Brand brand = brandService.getById(product.getBrand_id());
+            if(StringUtils.hasText(product.getBrandId())){
+                Brand brand = brandService.getById(product.getBrandId());
                 if(brand == null){
                     throw new MsgException("找不到品牌信息");
                 }
             }
             //验证商店，必须得有商店
-            if(StringUtils.containsWhitespace(product.getStore_id()) || !StringUtils.hasText(product.getStore_id())){
+            if(StringUtils.containsWhitespace(product.getStoreId()) || !StringUtils.hasText(product.getStoreId())){
                 throw  new MsgException("商店ID不能为空");
-            }else{
-                Store store = storeDao.selectById(product.getStore_id());
-                if(store == null){
-                    throw new MsgException("商店ID有误");
-                }
             }
+            Store store = storeDao.selectById(product.getStoreId());
+            if(store == null) throw new MsgException("商店ID有误");
             //验证规格模板存在不存在
             String specitemplateId = product.getSpecitemplateId();
             Specifictemplate specifictemplate = templateService.queryById(specitemplateId);
-            if(specifictemplate == null){
-                throw new MsgException("规格模板ID错误");
-            }
+            if(specifictemplate == null) throw new MsgException("规格模板ID错误");
             //验证分类数组，必须要有分类
             int length = categorys.size();
             for (int i = 0; i < length; i++) {
@@ -133,7 +128,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             if(insert <= 0){
                 throw new MsgException("创建商品失败");
             }
-            //创建商品成功，需要商品ID和分类填到分类-商品表
+            //创建商品成功，需要商品ID和分类填到分类-商品表 true
             SysResult result = categoryService.saveCatePro(categorys, product.getId());
             if(result.getStatus() != 200){
                 throw new MsgException(result.getMsg());
@@ -168,8 +163,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             if(ValiUtils.hasText(dto.getBarCode())){
                oldProduct.setBarCode(dto.getBarCode());
             }
-            if(ValiUtils.hasText(dto.getBrand_id())){
-                oldProduct.setBrand_id(dto.getBrand_id());
+            if(ValiUtils.hasText(dto.getBrandId())){
+                oldProduct.setBrandId(dto.getBrandId());
             }
             if(ValiUtils.hasText(dto.getBrief())){
                 oldProduct.setBrief(dto.getBrief());

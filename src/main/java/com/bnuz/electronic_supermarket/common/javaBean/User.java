@@ -16,6 +16,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Data
@@ -43,6 +45,7 @@ public class User implements Serializable {
     private String id;
     @TableField("wechatId")
     private String wechatId;
+    @NotBlank(message = "账号不能含有空格，且长度不能为0")
     private String account;
     private String password;
     @TableField("headImage")
@@ -58,6 +61,7 @@ public class User implements Serializable {
     private String address;
     private Integer state;
     private String note;
+    @Email
     private String email;
     @TableField("createTime")
     private String createTime;

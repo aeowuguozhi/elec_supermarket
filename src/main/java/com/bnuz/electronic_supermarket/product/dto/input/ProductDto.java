@@ -21,9 +21,11 @@ import lombok.Data;
 @ApiModel("商品Dto")
 public class ProductDto {
     @ApiModelProperty(value = "品牌_id")
-    private String brand_id;
+    @TableField("brandId")
+    private String brandId;
     @ApiModelProperty(value = "店铺_id",required = true)
-    private String store_id;
+    @TableField("storeId")
+    private String storeId;
     @TableField("barCode")
     @ApiModelProperty("条形码")
     private String barCode;

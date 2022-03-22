@@ -30,6 +30,7 @@ import com.bnuz.electronic_supermarket.common.utils.LocalDateTimeUtils;
 import com.bnuz.electronic_supermarket.order.dto.OrderDto;
 import com.bnuz.electronic_supermarket.order.enums.OrderrEnum;
 import com.bnuz.electronic_supermarket.order.service.OrderrService;
+import com.bnuz.electronic_supermarket.product.dao.ProductMapper;
 import com.bnuz.electronic_supermarket.product.dto.input.ProductDto;
 import com.bnuz.electronic_supermarket.product.dto.input.UpdateProductDto;
 import com.bnuz.electronic_supermarket.product.service.ProductService;
@@ -61,7 +62,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-
+    @Autowired
+    private ProductMapper productMapper;
 
     @SaCheckLogin
     @SaCheckPermission("product-add")
@@ -79,7 +81,7 @@ public class ProductController {
             Map<String, Object> map = new HashMap<>();
             map.put("product_id", product.getId());
             map.put("specificTemplateId", product.getSpecitemplateId());
-            map.put("brandId", product.getBrand_id());
+            map.put("brandId", product.getBrandId());
             return new SysResult(SysResultEnum.Created.getIndex(), SysResultEnum.Created.getName(), map);
         } catch (MsgException e) {
             return new SysResult(SysResultEnum.Client_ERROR.getIndex(), e.getMessage(), null);
@@ -124,7 +126,7 @@ public class ProductController {
     public SysResult queryAll(@RequestParam(value = "currPage", defaultValue = "1") Integer currPage,
                               @RequestParam(value = "size", defaultValue = "10") Integer size) {
         try {
-            Page<Product> page = productService.page(new Page<Product>(currPage, size));
+            Page<Product> page = productMapper.selectPage(new Page<>(currPage, size),null);
             Map<String, Object> map = new HashMap<>();
             map.put("products", page);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);
@@ -148,7 +150,9 @@ public class ProductController {
                                  @RequestParam(value = "size", defaultValue = "10") Integer size,
                                  @RequestParam("name") String name) {
         try {
-            Map<String, Object> page = productService.page(currPage, size, name);
+            Page<Product> page1 = new Page<>(currPage,size);
+            QueryWrapper<Product> queryWrapper = new QueryWrapper<>();
+            Page<Product> page = productMapper.selectPage(page1, queryWrapper.like("name",name));
             Map<String, Object> map = new HashMap<>();
             map.put("products", page);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);
@@ -199,7 +203,7 @@ public class ProductController {
         try {
             QueryWrapper<Product>queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("store_id",storeId);
-            Page<Product> page = productService.page(new Page<Product>(currPage, size),queryWrapper);
+            Page<Product> page = productMapper.selectPage(new Page<>(currPage, size),queryWrapper);
             Map<String, Object> map = new HashMap<>();
             map.put("products", page);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);
@@ -212,12 +216,10 @@ public class ProductController {
         }
     }
 
-
-
     private void dto2bean(Product product, ProductDto productDto) {
         product.setBarCode(productDto.getBarCode());
-        product.setBrand_id(productDto.getBrand_id());
-        product.setStore_id(productDto.getStore_id());
+        product.setBrandId(productDto.getBrandId());
+        product.setStoreId(productDto.getStoreId());
         product.setBrief(productDto.getBrief());
         product.setDescription(productDto.getDescription());
         product.setName(productDto.getName());

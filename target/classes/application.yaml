@@ -58,6 +58,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true                                  #开启驼峰命名模式
 
+
 server:
   port: 8099
 
@@ -80,6 +81,8 @@ sa-token:
   # 是否输出操作日志
   is-log: false
   token-style: simple-uuid
-
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 

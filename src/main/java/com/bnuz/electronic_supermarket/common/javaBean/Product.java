@@ -21,8 +21,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.validation.constraints.PositiveOrZero;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
- * lombok   mybatis-plus   API
+ * lombok   mybatis-plus   API       购买商品，生成订单，支付订单后需要减SKU库存，所以注意并发
  */
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,12 +34,23 @@ import lombok.ToString;
 @TableName("product")
 @ApiModel("商品")
 public class Product {
+    private static ReentrantLock reentrantLock = null;
+
+    public static ReentrantLock getReentrantLock(){
+        if(Product.reentrantLock == null){
+            reentrantLock = new ReentrantLock();
+        }
+        return reentrantLock;
+    }
+
     @ApiModelProperty("id(不要填)")
     private String id;
     @ApiModelProperty(value = "品牌_id")
-    private String brand_id;
+    @TableField("brandId")
+    private String brandId;
     @ApiModelProperty(value = "店铺_id",required = true)
-    private String store_id;
+    @TableField("storeId")
+    private String storeId;
     @TableField("barCode")
     @ApiModelProperty("条形码")
     private String barCode;
@@ -61,6 +75,7 @@ public class Product {
     @ApiModelProperty("状态")
     private int state;
     @ApiModelProperty(value = "库存",required = true)
+    @PositiveOrZero(message = "库存不能为负数")        //共享变量，库存
     private int stock;
     @ApiModelProperty(value = "规格模板ID",required = true)
     @TableField("specitemplateId")

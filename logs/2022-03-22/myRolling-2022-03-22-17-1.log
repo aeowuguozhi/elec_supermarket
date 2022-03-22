@@ -1,0 +1,3 @@
+[2022-03-22 17:00:07.024] [INFO ] com.bnuz.electronic_supermarket.order.service.Impl.OrderrServiceImpl.payOrder(OrderrServiceImpl.java:190) com.bnuz.electronic_supermarket.order.service.Impl.OrderrServiceImpl - java.lang.Double cannot be cast to java.lang.Integer
+[2022-03-22 17:00:08.413] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2029) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+[2022-03-22 17:00:08.421] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2101) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

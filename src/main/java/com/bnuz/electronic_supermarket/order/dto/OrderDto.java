@@ -35,7 +35,7 @@ public class OrderDto {
     @NotBlank
     private String storeId;
     @ApiModelProperty(value = "商品ID和对应数量",required = true)
-    private HashMap<String,Integer> products;
+    private HashMap<String,String> products;
     @ApiModelProperty("总价")
     private Float totalPrice;
     @ApiModelProperty("支付方式(微信，支付宝，银行卡)")

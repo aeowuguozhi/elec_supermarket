@@ -21,7 +21,8 @@ import lombok.Data;
 @ApiModel("更新时候用的商品Dto")
 public class UpdateProductDto {
     @ApiModelProperty(value = "品牌_id")
-    private String brand_id;
+    @TableField("brandId")
+    private String brandId;
     @TableField("barCode")
     @ApiModelProperty("条形码")
     private String barCode;
