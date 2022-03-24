@@ -54,6 +54,11 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Autowired
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
+    /**
+     * 检查账号是否被注册
+     * @param account
+     * @return
+     */
     @Override
     public boolean checkAccount(String account){
         QueryWrapper<User> wrapper = new QueryWrapper<>();
@@ -124,7 +129,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     }
 
     /**
-     * 登陆用户，返回token。redis存放用户信息
+     * 用户登陆，返回token。redis存放用户信息
      * @param account
      * @param password
      * @return token
@@ -147,7 +152,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 //            Payload.put("type", UserTypeEnum.USER.getName());
 //            String token = JwtUtil.createJwtToken(Payload, 120);//设置负载，设置token过期时间 120minutes
             StpUtil.login(User.myPrefix + "_" + userDB.getId());
-            StpUtil.getTokenInfo().setLoginType(UserTypeEnum.USER.getName());
+            StpUtil.getSession().set("type",UserTypeEnum.USER.getName());
             StpUtil.getSession().set(UserTypeEnum.USER.getName(),userDB);
             redisTemplate.opsForValue().set(User.myPrefix + "_"+ userDB.getId(), GsonUtil.getGson().toJson(userDB));
             Map<String,String>map = new HashMap<>();

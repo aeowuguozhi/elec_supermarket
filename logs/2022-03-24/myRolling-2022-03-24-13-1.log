@@ -1,0 +1,3 @@
+[2022-03-24 13:00:55.775] [ERROR] com.bnuz.electronic_supermarket.common.file.UploadServiceImpl.uploadFile(UploadServiceImpl.java:88) com.bnuz.electronic_supermarket.common.file.UploadServiceImpl - 上传失败,请重试
+[2022-03-24 13:00:57.078] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2029) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+[2022-03-24 13:00:57.085] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2101) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

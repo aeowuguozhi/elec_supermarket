@@ -1,11 +1,13 @@
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\Interceptor\LoginInterceptor.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\specification\speci\controller\SpecificationController.java
+D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\config\QiniuConfigBean.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\specification\speciTemplate\service\Impl\SpeTemplateServiceImpl.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\user\dao\UserDao.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\javaBean\Brand.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\product\enums\ProductStateEnum.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\javaBean\Cart.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\businessman\controller\BusinessmanController.java
+D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\file\UploadController.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\product\service\Impl\ProductServiceImpl.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\config\AdminWebConfig.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\javaBean\Category.java
@@ -15,6 +17,7 @@ D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\ele
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\javaBean\Category_product.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\user\controller\UserController.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\brand\dao\BrandMapper.java
+D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\file\UploadServiceImpl.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\specification\speci\dao\SpecificationMapper.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\businessman\service\implement\BusinessmanServiceImpl.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\utils\CalendarUtils.java
@@ -57,6 +60,7 @@ D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\ele
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\user\service\implement\UserServiceImpl.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\product\dao\ProductMapper.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\specification\speciTemplate\controller\SpeTemplateController.java
+D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\file\UploadService.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\utils\JudgeUserIdUtil.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\common\utils\ValiUtils.java
 D:\SeniorCourse\毕业设计\毕设作品电子商城\src\main\java\com\bnuz\electronic_supermarket\category\service\CategoryProductService.java

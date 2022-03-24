@@ -108,7 +108,7 @@ public class BusinessmanServiceImpl extends ServiceImpl<BusinessmanDao, Business
 //            payload.put("businessmanId", businessman.getId());
 //            String token = JwtUtil.createJwtToken(payload, 120);
             StpUtil.login(Businessman.myPrefix + "_" + businessman.getId());
-            StpUtil.getTokenInfo().setLoginType(UserTypeEnum.BUSINESSMAN.getName());
+            StpUtil.getSession().set("type",UserTypeEnum.BUSINESSMAN.getName());
             StpUtil.getSession().set(UserTypeEnum.BUSINESSMAN.getName(),businessman);
             Map<String,Object>result = new HashMap<>();
             result.put("token",StpUtil.getTokenValue());

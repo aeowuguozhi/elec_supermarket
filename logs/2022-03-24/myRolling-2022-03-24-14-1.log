@@ -1,0 +1,5 @@
+[2022-03-24 14:08:40.095] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-03-24 14:08:40.100] [INFO ] org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525) org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2022-03-24 14:08:40.107] [INFO ] org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547) org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+[2022-03-24 14:10:11.549] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2029) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+[2022-03-24 14:10:11.556] [INFO ] com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:2101) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

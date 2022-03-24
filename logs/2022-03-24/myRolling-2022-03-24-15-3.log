@@ -1,0 +1,454 @@
+[2022-03-24 15:12:18.032] [INFO ] org.hibernate.validator.internal.util.Version.<clinit>(Version.java:21) org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+[2022-03-24 15:12:18.120] [INFO ] org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55) com.bnuz.electronic_supermarket.ElectronicSupermarketApplication - Starting ElectronicSupermarketApplication using Java 1.8.0_251 on LAPTOP-T0L5AU5O with PID 20008 (D:\SeniorCourse\毕业设计\毕设作品电子商城\target\classes started by AEO WUGUOZHI in D:\SeniorCourse\毕业设计\毕设作品电子商城)
+[2022-03-24 15:12:18.125] [INFO ] org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:659) com.bnuz.electronic_supermarket.ElectronicSupermarketApplication - No active profile set, falling back to default profiles: default
+[2022-03-24 15:12:18.188] [INFO ] org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:255) org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-03-24 15:12:18.188] [INFO ] org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:255) org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-03-24 15:12:19.707] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-24 15:12:19.708] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-03-24 15:12:19.749] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Elasticsearch repository interfaces.
+[2022-03-24 15:12:19.752] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-24 15:12:19.752] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-03-24 15:12:19.781] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-03-24 15:12:19.800] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-24 15:12:19.800] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[2022-03-24 15:12:19.828] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 0 JDBC repository interfaces.
+[2022-03-24 15:12:19.838] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:262) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-03-24 15:12:19.839] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-03-24 15:12:19.877] [INFO ] org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
+[2022-03-24 15:12:20.636] [INFO ] org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108) org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+[2022-03-24 15:12:20.643] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+[2022-03-24 15:12:20.644] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[2022-03-24 15:12:20.644] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+[2022-03-24 15:12:20.782] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2022-03-24 15:12:20.782] [INFO ] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:290) org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2593 ms
+[2022-03-24 15:12:20.879] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.brand.service.Impl.BrandServiceImpl.LOGGER
+[2022-03-24 15:12:20.974] [INFO ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure.dataSource(DruidDataSourceAutoConfigure.java:56) com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure - Init DruidDataSource
+[2022-03-24 15:12:21.242] [INFO ] com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:994) com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[2022-03-24 15:12:23.600] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.order.service.Impl.OrderrServiceImpl.LOGGER
+[2022-03-24 15:12:23.632] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.product.service.Impl.ProductServiceImpl.LOGGER
+[2022-03-24 15:12:23.783] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.store.service.Implement.StoreServiceImpl.LOGGER
+[2022-03-24 15:12:23.796] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.user.service.implement.UserServiceImpl.LOGGER
+[2022-03-24 15:12:23.827] [INFO ] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.lambda$buildAutowiringMetadata$1(AutowiredAnnotationBeanPostProcessor.java:478) org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.bnuz.electronic_supermarket.common.file.UploadServiceImpl.LOGGER
+[2022-03-24 15:12:24.604] [INFO ] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58) org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2022-03-24 15:12:27.445] [INFO ] org.springframework.data.elasticsearch.support.VersionInfo.logVersions(VersionInfo.java:62) org.springframework.data.elasticsearch.support.VersionInfo - Version Spring Data Elasticsearch: 4.2.6
+[2022-03-24 15:12:27.445] [INFO ] org.springframework.data.elasticsearch.support.VersionInfo.logVersions(VersionInfo.java:63) org.springframework.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client in build: 7.12.1
+[2022-03-24 15:12:27.445] [INFO ] org.springframework.data.elasticsearch.support.VersionInfo.logVersions(VersionInfo.java:64) org.springframework.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client used: 7.12.1
+[2022-03-24 15:12:27.912] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+[2022-03-24 15:12:27.922] [INFO ] org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220) org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+[2022-03-24 15:12:28.106] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.112] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.152] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.153] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.153] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.164] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: String, dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.164] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.275] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.282] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.283] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.289] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.289] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.299] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.299] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.306] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.307] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.307] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.314] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: String, dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.314] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.361] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.367] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.368] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.375] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.376] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.376] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.383] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.383] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.390] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.391] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.391] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.408] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.408] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.441] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.446] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.447] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.466] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.467] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.473] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.473] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.480] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.480] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.480] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.540] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.546] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.547] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.553] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.553] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.559] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.559] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.560] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.565] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.566] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.566] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.616] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.616] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.625] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.626] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.631] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.631] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.636] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.645] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.650] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.651] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.658] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.658] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.658] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.663] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.663] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.693] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.697] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.697] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.701] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.702] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.702] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.707] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.707] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.712] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.713] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.713] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.722] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.722] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.726] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.727] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.763] [WARN ] springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader.modelSpecification(OperationImplicitParameterReader.java:170) springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+[2022-03-24 15:12:28.806] [INFO ] org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61) com.bnuz.electronic_supermarket.ElectronicSupermarketApplication - Started ElectronicSupermarketApplication in 11.259 seconds (JVM running for 14.781)
+[2022-03-24 15:12:44.322] [INFO ] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-03-24 15:12:44.323] [INFO ] org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525) org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2022-03-24 15:12:44.327] [INFO ] org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547) org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[2022-03-24 15:13:18.046] [ERROR] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is cn.dev33.satoken.exception.NotLoginException: 未提供Token] with root cause
+cn.dev33.satoken.exception.NotLoginException: 未提供Token
+	at cn.dev33.satoken.exception.NotLoginException.newInstance(NotLoginException.java:137) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.exception.NotLoginException.newInstance(NotLoginException.java:104) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.stp.StpLogic.getLoginId(StpLogic.java:571) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.stp.StpLogic.checkLogin(StpLogic.java:556) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.stp.StpLogic.checkByAnnotation(StpLogic.java:1467) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.action.SaTokenActionDefaultImpl.validateAnnotation(SaTokenActionDefaultImpl.java:121) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.strategy.SaStrategy.lambda$new$4(SaStrategy.java:88) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.strategy.SaStrategy.lambda$new$3(SaStrategy.java:79) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.interceptor.SaAnnotationInterceptor.preHandle(SaAnnotationInterceptor.java:40) ~[sa-token-spring-boot-starter-1.29.0.jar:?]
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1062) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.1.22.jar:1.1.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
+[2022-03-24 15:13:46.278] [ERROR] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.multipart.MultipartException: Current request is not a multipart request] with root cause
+org.springframework.web.multipart.MultipartException: Current request is not a multipart request
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:210) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:193) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:114) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.1.22.jar:1.1.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
+[2022-03-24 15:14:05.525] [ERROR] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.multipart.MultipartException: Current request is not a multipart request] with root cause
+org.springframework.web.multipart.MultipartException: Current request is not a multipart request
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:210) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:193) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:114) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.1.22.jar:1.1.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
+[2022-03-24 15:14:22.770] [ERROR] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.multipart.MultipartException: Current request is not a multipart request] with root cause
+org.springframework.web.multipart.MultipartException: Current request is not a multipart request
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:210) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:193) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:114) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.1.22.jar:1.1.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
+[2022-03-24 15:14:22.866] [ERROR] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.multipart.MultipartException: Current request is not a multipart request] with root cause
+org.springframework.web.multipart.MultipartException: Current request is not a multipart request
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:210) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:193) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:114) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.1.22.jar:1.1.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
+[2022-03-24 15:14:35.000] [ERROR] org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175) org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is cn.dev33.satoken.exception.NotLoginException: Token无效：53f12052a42349358dc4d342a2bdf3d3] with root cause
+cn.dev33.satoken.exception.NotLoginException: Token无效：53f12052a42349358dc4d342a2bdf3d3
+	at cn.dev33.satoken.exception.NotLoginException.newInstance(NotLoginException.java:137) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.stp.StpLogic.getLoginId(StpLogic.java:576) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.stp.StpLogic.checkLogin(StpLogic.java:556) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.stp.StpLogic.checkByAnnotation(StpLogic.java:1467) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.action.SaTokenActionDefaultImpl.validateAnnotation(SaTokenActionDefaultImpl.java:121) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.strategy.SaStrategy.lambda$new$4(SaStrategy.java:88) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.strategy.SaStrategy.lambda$new$3(SaStrategy.java:79) ~[sa-token-core-1.29.0.jar:?]
+	at cn.dev33.satoken.interceptor.SaAnnotationInterceptor.preHandle(SaAnnotationInterceptor.java:40) ~[sa-token-spring-boot-starter-1.29.0.jar:?]
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1062) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:124) ~[druid-1.1.22.jar:1.1.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]

@@ -51,6 +51,11 @@ spring:
         max-idle: 8                         #空闲
         min-idle: 0
     client-type: jedis                        #也可以切换lettuce
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB                         #单个文件最大上限
+      max-request-size: 200MB                    #单个请求所有文件大小的最大上限
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -69,10 +74,10 @@ logging:
 sa-token:
   # token名称 (同时也是cookie名称)
   token-name: satoken
-  # token有效期，单位s 默认30天, -1代表永不过期
-  timeout: 7200
-  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
-  activity-timeout: -1
+  # token有效期，单位s 默认30天, -1代表永不过期  7days
+  timeout: 604800
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒 如果在30分钟内用户有操作，则会再次续签30分钟，用户如果一直操作则会一直续签，直到连续30分钟无操作，Token才会过期
+  activity-timeout: 1800
   # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
   is-concurrent: false
   # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
@@ -81,8 +86,18 @@ sa-token:
   # 是否输出操作日志
   is-log: false
   token-style: simple-uuid
+
 mybatis-plus:
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl      #输出mybatis-plus生成的sql语句
+
+#unused
+qiniu:
+    accessKey: "x_7BsiXJ8A93xhgFZmk4MYfsjhFwz1GyAZQTGE58"
+    secretKey: "C7Zr7htH9Z2TpfjCvRUQpLADcIlh4bTq_5sGJzy7"
+    bucket: "ele-market"
+    cdnProfile: "r986lx5a8.bkt.clouddn.com"
+    protocol: "http://"
+
 
 
