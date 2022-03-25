@@ -96,7 +96,7 @@ public class StoreServiceImpl extends ServiceImpl<StoreDao, Store> implements St
     }
 
     /**
-     * 注销商店，将商店状态设置为0。UpdateWrapper用Mapper的太麻烦，那就用ServiceImpl的update
+     * 注销商店，将商店状态设置为0。
      * @param sid
      * @param request
      * @return

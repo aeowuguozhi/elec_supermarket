@@ -162,13 +162,15 @@ public class CategoryController {
     }
 
     /**
-     * 创建商品后，商品ID需要add到分类名为name的那条记录的product_ids     List<int>   ERROR do not used
+     *
+     * @param name
+     * @param ids
+     * @return
      */
     @ApiOperation("创建的商品的ID回填到分类的productIds字段")
     @PostMapping("/mergeProductIds")
     @Deprecated
-    public SysResult saveBackProductIds(@RequestParam("categoryName") String name,
-                                        @RequestBody List<String> ids) {
+    public SysResult saveBackProductIds(@RequestParam("categoryName") String name, @RequestBody List<String> ids) {
         try {
             //商品ID
             int length = ids.size();
@@ -220,6 +222,4 @@ public class CategoryController {
             return new SysResult(SysResultEnum.SYS_ERROR.getIndex(), e.getMessage(), null);
         }
     }
-
-
 }

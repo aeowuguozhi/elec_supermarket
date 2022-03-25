@@ -22,11 +22,12 @@ spring:
         login-username: admin
         enabled: true
         reset-enable: false
+        allow: 59.38.32.6
       web-stat-filter:                                #web监控
         enabled: true
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-      aop-patterns: com.atguigu.admin.*               #Spring-Aop配置
+      #aop-patterns: com.atguigu.admin.*               #Spring-Aop配置
       filters: stat,wall                              #filter配置
       filter:
         stat:
