@@ -1,0 +1,104 @@
+spring:
+  #静态资源访问前缀
+  mvc:
+    static-path-pattern: /res/**
+
+  web:
+    resources:
+#static-locations: classpath:/haha/     #改变默认的静态资源路径(这个+META-INF/resources可以)   deprecated(不赞成) use resources.static-locations
+      add-mappings: true                              #禁用所有静态资源规则
+
+
+  #数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/elec_market?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: iloveyou19991019
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    druid:
+      stat-view-servlet:                              #监控页的配置
+        login-password: admin
+        login-username: admin
+        enabled: true
+        reset-enable: false
+        allow: 59.38.32.6
+      web-stat-filter:                                #web监控
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      #aop-patterns: com.atguigu.admin.*               #Spring-Aop配置
+      filters: stat,wall                              #filter配置
+      filter:
+        stat:
+          slow-sql-millis: 1000
+          log-slow-sql: true
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+  redis:
+    port: 6379
+    host: aeowuguozhi1.redis.rds.aliyuncs.com
+#    host: 1.12.233.114
+    timeout: 5000
+    password: iloveyou19991019!
+    database: 0
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: -1ms
+        max-idle: 8                         #空闲
+        min-idle: 0
+    client-type: jedis                        #也可以切换lettuce
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB                         #单个文件最大上限
+      max-request-size: 200MB                    #单个请求所有文件大小的最大上限
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+#  config-location: classpath:mybatis/mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true                                  #开启驼峰命名模式
+
+
+server:
+  port: 8099
+
+logging:
+  config: classpath:log4j2.xml
+
+#https://sa-token.dev33.cn/doc/index.html#/up/token-style
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: satoken
+  # token有效期，单位s 默认30天, -1代表永不过期  7days
+  timeout: 604800
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒 如果在30分钟内用户有操作，则会再次续签30分钟，用户如果一直操作则会一直续签，直到连续30分钟无操作，Token才会过期
+  activity-timeout: 1800
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: false
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  # token风格
+  # 是否输出操作日志
+  is-log: false
+  token-style: simple-uuid
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl      #输出mybatis-plus生成的sql语句
+
+#unused
+qiniu:
+    accessKey: "x_7BsiXJ8A93xhgFZmk4MYfsjhFwz1GyAZQTGE58"
+    secretKey: "C7Zr7htH9Z2TpfjCvRUQpLADcIlh4bTq_5sGJzy7"
+    bucket: "ele-market"
+    cdnProfile: "r986lx5a8.bkt.clouddn.com"
+    protocol: "http://"
+
+
+

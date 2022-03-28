@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "qiniu",
+      "type": "com.bnuz.electronic_supermarket.common.config.QiniuConfigBean",
+      "sourceType": "com.bnuz.electronic_supermarket.common.config.QiniuConfigBean"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

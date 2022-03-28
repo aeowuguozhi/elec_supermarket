@@ -152,9 +152,9 @@ public class BusinessmanController {
             QueryWrapper<Orderr>queryWrapper = new QueryWrapper<>();
             if(state == 1024){
                 //查询所有最新的所有订单
-                queryWrapper.eq("storeId",storeId).orderByDesc("createTime");
+                queryWrapper.eq("storeId",storeId).orderByDesc("orderTime");
             }else{
-                queryWrapper.eq("storeId",storeId).eq("state",state).orderByDesc("createTime");
+                queryWrapper.eq("storeId",storeId).eq("state",state).orderByDesc("orderTime");
             }
             Page<Orderr> page = orderrService.page(new Page<Orderr>(currPage, size), queryWrapper);
             Map<String, Object> data = new HashMap<>();

@@ -93,8 +93,6 @@ public class OrderrServiceImpl extends ServiceImpl<OrderMapper, Orderr> implemen
             }
             //从StpUtil的Session中获取个人信息(登录的时候就已经存进去了，不用解析json直接拿就好了)
             User user1 = (User) StpUtil.getSession().get(UserTypeEnum.USER.getName());
-            QueryWrapper<User>queryWrapper1 =new QueryWrapper<>();
-            queryWrapper1.eq("account", user1.getAccount());
             //校验完毕
             Orderr orderr = new Orderr();
             //雪花算法snowFlake生成分布式系统下订单ID   1505528456231038976
@@ -157,7 +155,7 @@ public class OrderrServiceImpl extends ServiceImpl<OrderMapper, Orderr> implemen
                         if(updateProduct.getStock()-number < 0) throw new MsgException("商品库存不足，下单失败");
                         updateProduct.setStock(updateProduct.getStock()-number);
                         UpdateWrapper<Product>updateWrapper = new UpdateWrapper<>();
-                        updateWrapper.set("stock",updateProduct.getStock()-number).eq("id",productId);
+                        updateWrapper.set("stock",updateProduct.getStock()).eq("id",productId);
                         boolean update = productService.update(null, updateWrapper);
                         if (update == false) throw new MsgException("商品库存不足，购买失败");
                         System.out.println("当前下单:"+orderId+" 已完成,下单商品ID:"+productId+",下单后商品库存:"+updateProduct.getStock());
@@ -178,10 +176,10 @@ public class OrderrServiceImpl extends ServiceImpl<OrderMapper, Orderr> implemen
             UpdateWrapper<Orderr>updateWrapper = new UpdateWrapper<>();
             updateWrapper.set("payNumber",paymentDto.getPayNumber()).set("payMethod",paymentDto.getPayMethod());
             updateWrapper.set("payId",paymentDto.getPayId()).set("state",OrderrEnum.Payed.getIndex()).eq("id",orderId);
-            int update = orderDao.update(null, updateWrapper);
+            int update = orderDao.update(orderr, updateWrapper);
             if(update <= 0) throw new MsgException("支付订单失败");
             HashMap<String,Object> map = new HashMap<>();
-            map.put("order",orderr);
+            map.put("orderId",orderr.getId());
             return map;
         } catch (MsgException e) {
             LOGGER.info(e.getMessage());

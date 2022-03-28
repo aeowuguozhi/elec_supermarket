@@ -202,7 +202,7 @@ public class ProductController {
                               @RequestParam("storeId") String storeId) {
         try {
             QueryWrapper<Product>queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("store_id",storeId);
+            queryWrapper.eq("storeId",storeId);
             Page<Product> page = productMapper.selectPage(new Page<>(currPage, size),queryWrapper);
             Map<String, Object> map = new HashMap<>();
             map.put("products", page);
