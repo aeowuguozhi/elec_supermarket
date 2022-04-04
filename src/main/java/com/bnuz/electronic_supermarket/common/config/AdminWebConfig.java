@@ -13,6 +13,7 @@
 package com.bnuz.electronic_supermarket.common.config;
 
 import com.bnuz.electronic_supermarket.Interceptor.LoginInterceptor;
+import org.springframework.cache.interceptor.CacheInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

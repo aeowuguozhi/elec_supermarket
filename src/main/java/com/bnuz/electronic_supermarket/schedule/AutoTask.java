@@ -51,7 +51,7 @@ public class AutoTask {
      *     select * from orderr where state = 2；
      *
      */
-    @Scheduled(cron = "* 0/1 * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void scheduleTask(){
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         QueryWrapper<Orderr>queryWrapper = new QueryWrapper<>();

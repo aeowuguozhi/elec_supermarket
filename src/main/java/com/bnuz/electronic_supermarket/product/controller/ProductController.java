@@ -18,6 +18,7 @@ import cn.hutool.core.util.IdUtil;
 import cn.hutool.db.sql.Order;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.bnuz.electronic_supermarket.common.Factory.JDKProxyFactory;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
@@ -33,6 +34,7 @@ import com.bnuz.electronic_supermarket.order.service.OrderrService;
 import com.bnuz.electronic_supermarket.product.dao.ProductMapper;
 import com.bnuz.electronic_supermarket.product.dto.input.ProductDto;
 import com.bnuz.electronic_supermarket.product.dto.input.UpdateProductDto;
+import com.bnuz.electronic_supermarket.product.service.Impl.ProductServiceImpl;
 import com.bnuz.electronic_supermarket.product.service.ProductService;
 import com.bnuz.electronic_supermarket.store.service.StoreService;
 import com.bnuz.electronic_supermarket.user.service.UserService;
@@ -41,6 +43,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.jaxb.SpringDataJaxb;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,12 +61,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
-
+    /**
+     * 这里用了动态代理ProductService，计算代理类的方法的执行时间。但是很遗憾，动态代理获得的类并没有执行。
+     */
     @Autowired
     private ProductService productService;
-
-    @Autowired
-    private ProductMapper productMapper;
+//    private ProductService productService = (ProductService) JDKProxyFactory.getProxy(new ProductServiceImpl());
 
     @SaCheckLogin
     @SaCheckPermission("product-add")
@@ -126,7 +129,7 @@ public class ProductController {
     public SysResult queryAll(@RequestParam(value = "currPage", defaultValue = "1") Integer currPage,
                               @RequestParam(value = "size", defaultValue = "10") Integer size) {
         try {
-            Page<Product> page = productMapper.selectPage(new Page<>(currPage, size),null);
+            Page<Product> page = productService.page(new Page<>(currPage, size),null);
             Map<String, Object> map = new HashMap<>();
             map.put("products", page);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);
@@ -152,7 +155,7 @@ public class ProductController {
         try {
             Page<Product> page1 = new Page<>(currPage,size);
             QueryWrapper<Product> queryWrapper = new QueryWrapper<>();
-            Page<Product> page = productMapper.selectPage(page1, queryWrapper.like("name",name));
+            Page<Product> page = productService.page(page1, queryWrapper.like("name",name));
             Map<String, Object> map = new HashMap<>();
             map.put("products", page);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);
@@ -203,7 +206,7 @@ public class ProductController {
         try {
             QueryWrapper<Product>queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("storeId",storeId);
-            Page<Product> page = productMapper.selectPage(new Page<>(currPage, size),queryWrapper);
+            Page<Product> page = productService.page(new Page<>(currPage, size),queryWrapper);
             Map<String, Object> map = new HashMap<>();
             map.put("products", page);
             return new SysResult(SysResultEnum.SUCCESS.getIndex(), SysResultEnum.SUCCESS.getName(), map);

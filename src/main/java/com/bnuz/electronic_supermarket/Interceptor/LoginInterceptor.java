@@ -63,8 +63,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         }catch (TokenExpiredException e){
             LOGGER.info("token过期");
             throw new MsgException("token过期，请重新登录");
-        }
-        catch (Exception e){
+        }catch (Exception e){
             LOGGER.info(e.getMessage());
             throw e;
         }

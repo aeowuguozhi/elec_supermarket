@@ -1,0 +1,2 @@
+[2022-04-04 11:11:02.193] [INFO ] com.bnuz.electronic_supermarket.Interceptor.LoginInterceptor.preHandle(LoginInterceptor.java:57) com.bnuz.electronic_supermarket.Interceptor.LoginInterceptor - 客户端:主机名:127.0.0.1,IP:127.0.0.1  访问  服务器端:IP:127.0.0.1,请求资源名称:/store/queryMyStore
+[2022-04-04 11:11:02.616] [INFO ] com.bnuz.electronic_supermarket.Interceptor.LoginInterceptor.preHandle(LoginInterceptor.java:57) com.bnuz.electronic_supermarket.Interceptor.LoginInterceptor - 客户端:主机名:127.0.0.1,IP:127.0.0.1  访问  服务器端:IP:127.0.0.1,请求资源名称:/store/queryMyStore

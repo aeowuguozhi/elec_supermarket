@@ -172,6 +172,7 @@ public class OrderrServiceImpl extends ServiceImpl<OrderMapper, Orderr> implemen
                 throw new MsgException("下单用户过多，请稍后重试");
             }
             //todo 消息队列publish信息，外卖骑手收到消息 不做这个
+
             //update order回去数据库  标准的UpdateWrapper写法
             UpdateWrapper<Orderr>updateWrapper = new UpdateWrapper<>();
             updateWrapper.set("payNumber",paymentDto.getPayNumber()).set("payMethod",paymentDto.getPayMethod());
