@@ -14,14 +14,12 @@
 package com.bnuz.electronic_supermarket.user.controller;
 
 import cn.dev33.satoken.annotation.SaCheckLogin;
-import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.stp.StpUtil;
 import com.bnuz.electronic_supermarket.common.dto.SysResult;
 import com.bnuz.electronic_supermarket.common.enums.SysResultEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
-import com.bnuz.electronic_supermarket.common.javaBean.Administrator;
 import com.bnuz.electronic_supermarket.common.javaBean.User;
-import com.bnuz.electronic_supermarket.user.dto.UserRegisterDto;
+import com.bnuz.electronic_supermarket.user.dto.UserRegisterDTO;
 import com.bnuz.electronic_supermarket.user.service.UserService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +47,7 @@ public class UserController {
     @ApiOperation(value = "用户注册")
     @ApiImplicitParam(name = "userDto",value = "用户Dto")
     @PostMapping("/register/user")
-    public SysResult registerUser(@RequestBody UserRegisterDto userDto){
+    public SysResult registerUser(@RequestBody UserRegisterDTO userDto){
         try{
             String uid = this.userService.registerUser(userDto);
             Map<String,Object> result = new HashMap<>();

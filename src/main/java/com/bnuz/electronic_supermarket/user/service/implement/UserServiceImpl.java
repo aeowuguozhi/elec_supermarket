@@ -11,18 +11,15 @@
 
 package com.bnuz.electronic_supermarket.user.service.implement;
 
-import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.stp.StpUtil;
-import com.auth0.jwt.interfaces.Payload;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bnuz.electronic_supermarket.common.enums.UserTypeEnum;
 import com.bnuz.electronic_supermarket.common.exception.MsgException;
-import com.bnuz.electronic_supermarket.common.javaBean.Administrator;
 import com.bnuz.electronic_supermarket.common.javaBean.User;
 import com.bnuz.electronic_supermarket.common.utils.*;
 import com.bnuz.electronic_supermarket.user.dao.UserDao;
-import com.bnuz.electronic_supermarket.user.dto.UserRegisterDto;
+import com.bnuz.electronic_supermarket.user.dto.UserRegisterDTO;
 import com.bnuz.electronic_supermarket.user.enums.UserStateEnum;
 import com.bnuz.electronic_supermarket.user.exception.PasswordErrorException;
 import com.bnuz.electronic_supermarket.user.service.UserService;
@@ -84,7 +81,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public String registerUser(UserRegisterDto userDto) {
+    public String registerUser(UserRegisterDTO userDto) {
         //账号能否使用
         try{
             if(userDto.getAccount() == null || userDto.getAccount().equals("")){
@@ -114,7 +111,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         }
     }
 
-    private void userDto2user(UserRegisterDto userDto, User user) {
+    private void userDto2user(UserRegisterDTO userDto, User user) {
         user.setWechatId(userDto.getWechatId());
         user.setAccount(userDto.getAccount());
         user.setAddress(userDto.getAddress());

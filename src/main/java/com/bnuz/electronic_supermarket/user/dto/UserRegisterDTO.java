@@ -22,7 +22,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRegisterDto {
+public class UserRegisterDTO {
     @ApiModelProperty(value = "微信ID")
     private String wechatId;
     @ApiModelProperty(value = "账号",required = true)
